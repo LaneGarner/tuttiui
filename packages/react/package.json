@@ -1,6 +1,18 @@
 {
   "name": "@tutti-ui/react",
   "version": "0.1.0",
+  "description": "React components for the tutti-ui design system",
+  "license": "MIT",
+  "author": "Lane Garner",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lanegarner/tutti-ui.git",
+    "directory": "packages/react"
+  },
+  "homepage": "https://github.com/lanegarner/tutti-ui#readme",
+  "bugs": "https://github.com/lanegarner/tutti-ui/issues",
+  "keywords": ["react", "components", "design-system", "tailwindcss", "ui"],
+  "publishConfig": { "access": "public" },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -48,7 +60,8 @@
     "typescript": "~5.9.2"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "sideEffects": false
 }

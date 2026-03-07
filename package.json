@@ -7,9 +7,14 @@
     "typecheck": "turbo run typecheck",
     "lint": "turbo run lint",
     "storybook": "pnpm --filter @tutti-ui/storybook storybook",
-    "clean": "turbo run clean"
+    "clean": "turbo run clean",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "pnpm build && changeset publish"
   },
   "devDependencies": {
+    "@changesets/changelog-github": "^0.6.0",
+    "@changesets/cli": "^2.30.0",
     "turbo": "^2.3.0",
     "typescript": "~5.9.2"
   },
