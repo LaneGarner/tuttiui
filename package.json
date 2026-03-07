@@ -1,0 +1,17 @@
+{
+  "name": "tutti-ui",
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "typecheck": "turbo run typecheck",
+    "lint": "turbo run lint",
+    "storybook": "pnpm --filter @tutti-ui/storybook storybook",
+    "clean": "turbo run clean"
+  },
+  "devDependencies": {
+    "turbo": "^2.3.0",
+    "typescript": "~5.9.2"
+  },
+  "packageManager": "pnpm@10.11.0"
+}
