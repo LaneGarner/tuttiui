@@ -5,8 +5,10 @@ module.exports = {
   content: [
     "./src/**/*.{ts,tsx}",
     "../../packages/react/src/**/*.{ts,tsx}",
+    "../../packages/react-native/src/**/*.{ts,tsx}",
   ],
   presets: [tuttiPreset],
+  important: true,
   darkMode: "class",
   theme: {
     extend: {},

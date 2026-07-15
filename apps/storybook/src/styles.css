@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/*
+ * Override react-native-web's atomic CSS resets.
+ * RNW sets background-color: transparent, border: 0 solid black, etc.
+ * on all View/Text elements via atomic classes. Tailwind's !important
+ * (from important: true in config) handles most cases, but we also
+ * need to ensure RNW's reset doesn't suppress border-width from
+ * Tailwind's `border` utility.
+ */
+[class*="css-view"][class*="border"] {
+  border-style: solid;
+}
