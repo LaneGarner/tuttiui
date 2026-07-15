@@ -1,22 +1,32 @@
 # tutti-ui
 
-A comprehensive React component library with design tokens, accessibility-first components, and AI-native UI primitives.
+A comprehensive component library for React and React Native with shared design tokens, accessibility-first components, and AI-native UI primitives.
 
 ## Features
 
-- **32 component families** with 60+ exports
-- **Accessible by default** -- ARIA roles, keyboard navigation, focus management
-- **Tailwind CSS v3** integration via preset
-- **Design tokens** for colors, spacing, typography, radii, and shadows
-- **Dark mode ready** with semantic color tokens and ThemeProvider
+- **32 component families** with 60+ exports on web
+- **React Native support: 27 of 32 component families** via NativeWind (see [PARITY.md](./PARITY.md))
+- **One set of design tokens** (colors, spacing, typography, radii, shadows) consumed by both platforms
+- **Accessible by default** -- ARIA roles and keyboard navigation on web; `accessibilityRole`/`accessibilityState`/`accessibilityLabel` on native
+- **Tailwind CSS v3** integration via preset (web) and NativeWind classNames (native)
+- **Dark mode ready** with semantic color tokens and a ThemeProvider for each platform
 - **TypeScript strict mode** throughout
-- **332 tests** with Jest + React Testing Library
-- **Storybook** for interactive documentation
+- **600+ tests** with Jest + Testing Library (332 web, 271 native)
+- **Storybook** for interactive documentation (web + native stories via react-native-web)
 
 ## Installation
 
+### React (web)
+
 ```bash
 npm install @tutti-ui/react @tutti-ui/tokens @tutti-ui/shared
+```
+
+### React Native
+
+```bash
+npm install @tutti-ui/react-native @tutti-ui/tokens @tutti-ui/shared nativewind
+npm install react-native-reanimated react-native-svg   # used by Skeleton, Spinner, icons
 ```
 
 ### Tailwind CSS Setup
@@ -38,6 +48,8 @@ module.exports = {
 
 ## Quick Start
 
+### React (web)
+
 ```tsx
 import { Button, Input, Label, Card, CardContent } from "@tutti-ui/react";
 
@@ -53,6 +65,42 @@ function App() {
   );
 }
 ```
+
+### React Native
+
+Same tokens, same prop APIs, NativeWind under the hood:
+
+```tsx
+import { Button, Input, Label, Card, CardContent } from "@tutti-ui/react-native";
+import { ThemeProvider } from "@tutti-ui/shared/native";
+
+function App() {
+  return (
+    <ThemeProvider>
+      <Card>
+        <CardContent>
+          <Label required>Email</Label>
+          <Input placeholder="you@example.com" keyboardType="email-address" />
+          <Button variant="primary" onPress={handleSubmit}>Submit</Button>
+        </CardContent>
+      </Card>
+    </ThemeProvider>
+  );
+}
+```
+
+Add the tutti-ui preset to your NativeWind `tailwind.config.js` `content` and
+`presets` the same way as on web (see Tailwind CSS Setup above), pointing
+`content` at `./node_modules/@tutti-ui/react-native/dist/**/*.{js,mjs}`.
+
+### React Native parity
+
+27 of 32 web component families are available in `@tutti-ui/react-native`,
+including all form controls, feedback, layout, and AI-native components.
+`CommandPalette`, `Breadcrumbs`, and `Sidebar` are web-only by design (their
+mobile equivalents belong to the navigation layer); `NavMenu` (as a native
+`TabBar`) and `StreamingTable` (as a `StreamingList`) are deferred. Platform
+notes for every component live in [PARITY.md](./PARITY.md).
 
 ## Components
 
@@ -112,9 +160,10 @@ function App() {
 
 | Package | Description |
 |---------|-------------|
-| `@tutti-ui/tokens` | Design tokens (colors, spacing, typography, radii, shadows) |
-| `@tutti-ui/shared` | `cn()` utility, `ThemeProvider`, `useTheme` hook |
-| `@tutti-ui/react` | React components + Tailwind preset |
+| `@tutti-ui/tokens` | Design tokens (colors, spacing, typography, radii, shadows + `nativeShadows`) |
+| `@tutti-ui/shared` | `cn()` utility, `ThemeProvider`, `useTheme` hook (web at `.`, RN at `./native`) |
+| `@tutti-ui/react` | React (web) components + Tailwind preset |
+| `@tutti-ui/react-native` | React Native components (NativeWind) |
 | `@tutti-ui/storybook` | Storybook app (internal) |
 
 ### Dependency Graph
@@ -124,7 +173,11 @@ function App() {
        |
 @tutti-ui/shared
        |
-@tutti-ui/react
+       +---------------------+
+       |                     |
+@tutti-ui/react    @tutti-ui/react-native
+       |                     |
+       +---------------------+
        |
 @tutti-ui/storybook
 ```
@@ -140,6 +193,18 @@ pnpm storybook          # Launch Storybook at localhost:6006
 pnpm clean              # Remove all build artifacts
 ```
 
+### Deploying Storybook
+
+The Storybook app builds statically and ships with a Vercel config
+(`apps/storybook/vercel.json`). To deploy:
+
+```bash
+vercel --cwd apps/storybook
+```
+
+(or point a Vercel project's Root Directory at `apps/storybook` — the config
+handles the monorepo install and build commands.)
+
 ### Single Package Commands
 
 ```bash
@@ -150,9 +215,9 @@ pnpm --filter @tutti-ui/tokens build                             # Build tokens 
 
 ## Tech Stack
 
-- **React** 18/19
+- **React** 18/19, **React Native** 0.74+
 - **TypeScript** (strict mode)
-- **Tailwind CSS** v3
+- **Tailwind CSS** v3 (web) / **NativeWind** v4 (native)
 - **class-variance-authority** for component variants
 - **clsx** + **tailwind-merge** for class composition
 - **tsup** for building (CJS + ESM + .d.ts)
