@@ -15,7 +15,7 @@ A comprehensive component library for React and React Native with shared design 
 - **One set of design tokens** (colors, spacing, typography, radii, shadows) consumed by both platforms
 - **Accessible by default** -- ARIA roles and keyboard navigation on web; `accessibilityRole`/`accessibilityState`/`accessibilityLabel` on native
 - **Tailwind CSS v3** integration via preset (web) and NativeWind classNames (native)
-- **Dark mode ready** with semantic color tokens and a ThemeProvider for each platform
+- **Dark mode and full retheming** through semantic CSS-variable tokens — no `dark:` classes anywhere in component source, and a consumer can point the whole system at their own palette
 - **TypeScript strict mode** throughout
 - **600+ tests** with Jest + Testing Library (332 web, 271 native)
 - **Storybook** for interactive documentation (web + native stories via react-native-web)
@@ -48,9 +48,48 @@ module.exports = {
     "./node_modules/@tutti-ui/react/dist/**/*.{js,mjs}",
   ],
   presets: [tuttiPreset],
-  darkMode: "class",
 };
 ```
+
+The preset sets `darkMode: "class"` and declares the theme variables for you.
+Add `dark` to a root element (usually `<html>`) and every component follows —
+there is nothing to configure per component and no `dark:` class to write.
+
+### Theming
+
+Components read their colors from `--tt-*` variables, so overriding those
+retints the entire system. Declare them **after** `@tailwind base` so they win
+at equal specificity:
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --tt-surface: #fffdf7;
+  --tt-fg: #1a1a1a;
+  --tt-primary: #222222;
+  --tt-primary-fg: #fcdc00;
+  --tt-focus: #60dbfb;
+}
+
+.dark {
+  --tt-surface: #303030;
+  --tt-field: #2b2b2b;
+  --tt-border: #3a3a3a;
+}
+```
+
+Aliasing works too — `--tt-primary: var(--brand)` — which is usually how this
+is wired into an app that already has its own tokens. The full variable list
+ships as `@tutti-ui/tokens/theme.css`, and is also importable as objects
+(`lightColors` / `darkColors`) for React Native and for anything that needs the
+values in JS.
+
+Every variant component also carries `data-variant` / `data-state`, which are
+supported selectors: `[data-variant="success"] { ... }` is a stable way to
+reach a specific state from your own CSS.
 
 ## Quick Start
 
