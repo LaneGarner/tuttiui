@@ -121,7 +121,7 @@ export const TooltipContent = forwardRef<HTMLDivElement, TooltipContentProps>(
         id={tooltipId}
         role="tooltip"
         className={cn(
-          "absolute z-50 rounded-md bg-gray-900 px-3 py-1.5 text-xs text-white shadow-md",
+          "absolute z-50 rounded-md bg-tt-inverse px-3 py-1.5 text-xs text-tt-inverse-fg shadow-md",
           sideClasses[side],
           className
         )}

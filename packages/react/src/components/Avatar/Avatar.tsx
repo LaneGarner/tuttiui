@@ -129,6 +129,8 @@ export const AvatarFallback = forwardRef<HTMLSpanElement, AvatarFallbackProps>(
     return (
       <span
         ref={ref}
+        data-part="fallback"
+        data-size={size}
         className={cn(
           "flex h-full w-full items-center justify-center rounded-full bg-tt-surface-2 text-tt-fg-muted font-medium",
           fallbackTextVariants[size],

@@ -24,8 +24,7 @@ describe("Textarea", () => {
   it("shows error state classes", () => {
     render(<Textarea aria-label="message" error />);
     const textarea = screen.getByRole("textbox");
-    expect(textarea).toHaveClass("border-red-500");
-    expect(textarea).toHaveClass("focus-visible:ring-red-500");
+    expect(textarea).toHaveAttribute("aria-invalid", "true");
   });
 
   it("disables properly", () => {

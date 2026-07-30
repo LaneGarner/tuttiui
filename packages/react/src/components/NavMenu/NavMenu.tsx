@@ -46,12 +46,12 @@ export const NavMenuItem = forwardRef<HTMLLIElement, NavMenuItemProps>(
 NavMenuItem.displayName = "NavMenuItem";
 
 const navMenuLinkVariants = cva(
-  "flex items-center gap-2 rounded-md px-3 py-2 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500",
+  "flex items-center gap-2 rounded-md px-3 py-2 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tt-focus",
   {
     variants: {
       active: {
-        true: "bg-gray-100 text-gray-900 font-medium",
-        false: "text-gray-600 hover:text-gray-900 hover:bg-gray-50",
+        true: "bg-tt-surface-active text-tt-fg font-medium",
+        false: "text-tt-fg-muted hover:text-tt-fg hover:bg-tt-surface-hover",
       },
     },
     defaultVariants: {

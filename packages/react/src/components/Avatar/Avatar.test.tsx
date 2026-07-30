@@ -90,7 +90,7 @@ describe("AvatarFallback", () => {
     expect(fallback).toHaveClass("flex");
     expect(fallback).toHaveClass("items-center");
     expect(fallback).toHaveClass("justify-center");
-    expect(fallback).toHaveClass("bg-gray-100");
+    expect(fallback).toHaveAttribute("data-part", "fallback");
     expect(fallback).toHaveClass("font-medium");
   });
 

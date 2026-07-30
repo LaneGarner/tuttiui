@@ -29,6 +29,7 @@ const Alert = forwardRef<HTMLDivElement, AlertProps>(
       <div
         ref={ref}
         role="alert"
+        data-variant={variant ?? "default"}
         className={cn(alertVariants({ variant }), className)}
         {...props}
       >

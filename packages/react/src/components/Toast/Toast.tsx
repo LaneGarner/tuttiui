@@ -7,11 +7,11 @@ const toastVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-white border-gray-200 text-gray-900",
-        success: "bg-green-50 border-green-200 text-green-800",
-        error: "bg-red-50 border-red-200 text-red-800",
-        warning: "bg-amber-50 border-amber-200 text-amber-800",
-        info: "bg-blue-50 border-blue-200 text-blue-800",
+        default: "bg-tt-surface border-tt-border text-tt-fg",
+        success: "bg-tt-success-subtle border-tt-success-border text-tt-success-on-subtle",
+        error: "bg-tt-danger-subtle border-tt-danger-border text-tt-danger-on-subtle",
+        warning: "bg-tt-warning-subtle border-tt-warning-border text-tt-warning-on-subtle",
+        info: "bg-tt-info-subtle border-tt-info-border text-tt-info-on-subtle",
       },
     },
     defaultVariants: {
@@ -35,6 +35,7 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
         ref={ref}
         role="status"
         aria-live="polite"
+        data-variant={variant ?? "default"}
         className={cn(toastVariants({ variant }), "relative", className)}
         {...props}
       >
@@ -50,7 +51,7 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
         {onDismiss && (
           <button
             type="button"
-            className="shrink-0 rounded-sm opacity-70 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="shrink-0 rounded-sm opacity-70 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-tt-focus"
             onClick={onDismiss}
             aria-label="Dismiss"
           >

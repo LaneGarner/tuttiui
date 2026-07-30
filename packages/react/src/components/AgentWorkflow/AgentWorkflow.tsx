@@ -22,12 +22,12 @@ export interface AgentWorkflowProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const stateClasses: Record<WorkflowState, string> = {
-  pending: "bg-gray-200 text-gray-500",
-  running: "bg-blue-500 text-white animate-pulse",
-  streaming: "bg-cyan-500 text-white animate-pulse",
-  completed: "bg-green-500 text-white",
-  failed: "bg-red-500 text-white",
-  "needs-approval": "bg-amber-500 text-white",
+  pending: "bg-tt-surface-3 text-tt-fg-subtle",
+  running: "bg-tt-info text-tt-info-fg animate-pulse",
+  streaming: "bg-tt-stream text-tt-stream-fg animate-pulse",
+  completed: "bg-tt-success text-tt-success-fg",
+  failed: "bg-tt-danger text-tt-danger-fg",
+  "needs-approval": "bg-tt-warning text-tt-warning-fg",
 };
 
 const stateIcons: Record<WorkflowState, string> = {
@@ -51,6 +51,8 @@ export const AgentWorkflow = forwardRef<HTMLDivElement, AgentWorkflowProps>(
                   "h-8 w-8 rounded-full flex items-center justify-center text-sm font-bold shrink-0",
                   stateClasses[step.state]
                 )}
+                data-part="step-indicator"
+                data-state={step.state}
                 data-testid={`step-indicator-${step.id}`}
               >
                 {stateIcons[step.state]}
@@ -58,12 +60,12 @@ export const AgentWorkflow = forwardRef<HTMLDivElement, AgentWorkflowProps>(
               <div className="min-w-0 flex-1">
                 <h3 className="font-medium text-sm">{step.label}</h3>
                 {step.description && (
-                  <p className="text-xs text-gray-500">{step.description}</p>
+                  <p className="text-xs text-tt-fg-subtle">{step.description}</p>
                 )}
                 {step.state === "running" && step.progress !== undefined && (
-                  <div className="mt-1.5 h-1 bg-gray-200 rounded-full overflow-hidden">
+                  <div className="mt-1.5 h-1 bg-tt-surface-3 rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-blue-500 rounded-full transition-all duration-300"
+                      className="h-full bg-tt-info rounded-full transition-all duration-300"
                       style={{ width: `${Math.min(Math.max(step.progress, 0), 100)}%` }}
                       data-testid={`step-progress-${step.id}`}
                     />
@@ -72,7 +74,9 @@ export const AgentWorkflow = forwardRef<HTMLDivElement, AgentWorkflowProps>(
               </div>
             </div>
             {index < steps.length - 1 && (
-              <div className="ml-4 h-6 border-l-2 border-gray-200" data-testid="connector-line" />
+              <div className="ml-4 h-6 border-l-2 border-tt-border"
+                data-part="connector"
+                data-testid="connector-line" />
             )}
           </div>
         ))}

@@ -15,11 +15,19 @@ const sizeClasses: Record<"sm" | "md" | "lg", string> = {
   lg: "h-3 w-64",
 };
 
-function getBarColor(value: number): string {
-  if (value < 30) return "bg-tt-danger";
-  if (value < 60) return "bg-tt-warning";
-  return "bg-tt-success";
+type ConfidenceLevel = "low" | "medium" | "high";
+
+function getLevel(value: number): ConfidenceLevel {
+  if (value < 30) return "low";
+  if (value < 60) return "medium";
+  return "high";
 }
+
+const levelBarColor: Record<ConfidenceLevel, string> = {
+  low: "bg-tt-danger",
+  medium: "bg-tt-warning",
+  high: "bg-tt-success",
+};
 
 export const ConfidenceIndicator = forwardRef<
   HTMLDivElement,
@@ -68,9 +76,10 @@ export const ConfidenceIndicator = forwardRef<
           <div
             className={cn(
               "h-full rounded-full transition-all duration-300",
-              getBarColor(clampedValue)
+              levelBarColor[getLevel(clampedValue)]
             )}
             style={{ width: `${clampedValue}%` }}
+            data-level={getLevel(clampedValue)}
             data-testid="confidence-bar"
           />
         </div>

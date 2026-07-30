@@ -29,6 +29,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     return (
       <input
         ref={ref}
+        // The error state was purely visual before — a screen reader had no
+        // way to know the field was invalid.
+        aria-invalid={error || undefined}
         className={cn(
           inputVariants({ size }),
           error && "border-tt-danger focus-visible:ring-tt-focus",

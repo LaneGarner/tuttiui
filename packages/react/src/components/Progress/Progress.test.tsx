@@ -48,19 +48,19 @@ describe("Progress", () => {
   it("applies color variants", () => {
     const { rerender } = render(<Progress value={50} variant="default" />);
     let bar = screen.getByRole("progressbar").firstChild as HTMLElement;
-    expect(bar).toHaveClass("bg-blue-600");
+    expect(bar).toHaveAttribute("data-variant", "default");
 
     rerender(<Progress value={50} variant="success" />);
     bar = screen.getByRole("progressbar").firstChild as HTMLElement;
-    expect(bar).toHaveClass("bg-green-500");
+    expect(bar).toHaveAttribute("data-variant", "success");
 
     rerender(<Progress value={50} variant="warning" />);
     bar = screen.getByRole("progressbar").firstChild as HTMLElement;
-    expect(bar).toHaveClass("bg-amber-500");
+    expect(bar).toHaveAttribute("data-variant", "warning");
 
     rerender(<Progress value={50} variant="error" />);
     bar = screen.getByRole("progressbar").firstChild as HTMLElement;
-    expect(bar).toHaveClass("bg-red-500");
+    expect(bar).toHaveAttribute("data-variant", "error");
   });
 
   it("forwards ref", () => {

@@ -96,7 +96,7 @@ export const StreamingText: FC<StreamingTextProps> = ({
     <span className={cn(className)} data-testid="streaming-text">
       {displayedText}
       {showBlinkingCursor && (
-        <span className="inline-block animate-pulse text-blue-500" data-testid="streaming-cursor">
+        <span className="inline-block animate-pulse text-tt-info" data-testid="streaming-cursor">
           |
         </span>
       )}

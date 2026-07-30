@@ -129,23 +129,23 @@ export const CommandPalette = ({
   return createPortal(
     <div onKeyDown={handleKeyDown}>
       <div
-        className="fixed inset-0 z-50 bg-black/50"
+        className="fixed inset-0 z-50 bg-tt-overlay"
         onClick={() => onOpenChange(false)}
         data-testid="command-palette-overlay"
       />
-      <div className="fixed left-1/2 top-[20%] z-50 w-full max-w-lg -translate-x-1/2 rounded-lg border border-gray-200 bg-white shadow-2xl overflow-hidden">
+      <div className="fixed left-1/2 top-[20%] z-50 w-full max-w-lg -translate-x-1/2 rounded-lg border border-tt-border bg-tt-surface text-tt-fg shadow-2xl overflow-hidden">
         <input
           ref={inputRef}
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder={placeholder}
-          className="w-full border-b border-gray-200 bg-transparent px-4 py-3 text-sm outline-none placeholder:text-gray-400"
+          className="w-full border-b border-tt-border bg-transparent px-4 py-3 text-sm outline-none placeholder:text-tt-fg-faint"
           data-testid="command-palette-input"
         />
         <div className="max-h-72 overflow-y-auto p-2">
           {filteredItems.length === 0 ? (
-            <div className="px-3 py-8 text-center text-sm text-gray-400">
+            <div className="px-3 py-8 text-center text-sm text-tt-fg-faint">
               {emptyMessage}
             </div>
           ) : (
@@ -160,8 +160,8 @@ export const CommandPalette = ({
                   item.disabled
                     ? "opacity-50 cursor-not-allowed"
                     : index === selectedIndex
-                      ? "bg-blue-50 text-blue-900"
-                      : "text-gray-700 hover:bg-gray-50"
+                      ? "bg-tt-primary-subtle text-tt-primary-on-subtle"
+                      : "text-tt-fg-muted hover:bg-tt-surface-hover"
                 )}
                 onClick={() => handleSelect(item)}
                 data-testid={`command-item-${item.id}`}
@@ -169,13 +169,13 @@ export const CommandPalette = ({
                 <div className="flex items-center gap-2">
                   <span>{item.label}</span>
                   {item.category && (
-                    <span className="text-xs text-gray-400">
+                    <span className="text-xs text-tt-fg-faint">
                       {item.category}
                     </span>
                   )}
                 </div>
                 {item.shortcut && (
-                  <kbd className="text-xs text-gray-400 bg-gray-100 px-1.5 py-0.5 rounded">
+                  <kbd className="text-xs text-tt-fg-faint bg-tt-surface-2 px-1.5 py-0.5 rounded">
                     {item.shortcut}
                   </kbd>
                 )}

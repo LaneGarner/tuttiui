@@ -14,36 +14,31 @@ describe("Toast", () => {
   it("renders default variant", () => {
     render(<Toast title="Default" data-testid="toast" />);
     const toast = screen.getByTestId("toast");
-    expect(toast).toHaveClass("bg-white");
-    expect(toast).toHaveClass("border-gray-200");
+    expect(toast).toHaveAttribute("data-variant", "default");
   });
 
   it("renders success variant", () => {
     render(<Toast title="Success" variant="success" data-testid="toast" />);
     const toast = screen.getByTestId("toast");
-    expect(toast).toHaveClass("bg-green-50");
-    expect(toast).toHaveClass("border-green-200");
+    expect(toast).toHaveAttribute("data-variant", "success");
   });
 
   it("renders error variant", () => {
     render(<Toast title="Error" variant="error" data-testid="toast" />);
     const toast = screen.getByTestId("toast");
-    expect(toast).toHaveClass("bg-red-50");
-    expect(toast).toHaveClass("border-red-200");
+    expect(toast).toHaveAttribute("data-variant", "error");
   });
 
   it("renders warning variant", () => {
     render(<Toast title="Warning" variant="warning" data-testid="toast" />);
     const toast = screen.getByTestId("toast");
-    expect(toast).toHaveClass("bg-amber-50");
-    expect(toast).toHaveClass("border-amber-200");
+    expect(toast).toHaveAttribute("data-variant", "warning");
   });
 
   it("renders info variant", () => {
     render(<Toast title="Info" variant="info" data-testid="toast" />);
     const toast = screen.getByTestId("toast");
-    expect(toast).toHaveClass("bg-blue-50");
-    expect(toast).toHaveClass("border-blue-200");
+    expect(toast).toHaveAttribute("data-variant", "info");
   });
 
   it("dismiss button calls onDismiss", async () => {

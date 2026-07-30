@@ -17,7 +17,7 @@ export const FormError = ({ children, className, ...props }: FormErrorProps) => 
     <p
       id={`${id}-error`}
       role="alert"
-      className={cn("text-sm font-medium text-red-500", className)}
+      className={cn("text-sm font-medium text-tt-danger", className)}
       {...props}
     >
       {children}

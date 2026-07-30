@@ -24,6 +24,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
     return (
       <div
         ref={ref}
+        data-variant={variant ?? "default"}
         className={cn(cardVariants({ variant }), className)}
         {...props}
       />

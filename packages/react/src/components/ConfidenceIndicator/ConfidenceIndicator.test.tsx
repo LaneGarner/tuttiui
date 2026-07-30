@@ -22,19 +22,19 @@ describe("ConfidenceIndicator", () => {
   it("color is red when value < 30", () => {
     render(<ConfidenceIndicator value={15} />);
     const bar = screen.getByTestId("confidence-bar");
-    expect(bar).toHaveClass("bg-red-500");
+    expect(bar).toHaveAttribute("data-level", "low");
   });
 
   it("color is amber when value 30-59", () => {
     render(<ConfidenceIndicator value={45} />);
     const bar = screen.getByTestId("confidence-bar");
-    expect(bar).toHaveClass("bg-amber-500");
+    expect(bar).toHaveAttribute("data-level", "medium");
   });
 
   it("color is green when value >= 60", () => {
     render(<ConfidenceIndicator value={80} />);
     const bar = screen.getByTestId("confidence-bar");
-    expect(bar).toHaveClass("bg-green-500");
+    expect(bar).toHaveAttribute("data-level", "high");
   });
 
   it("clamps negative value to 0", () => {

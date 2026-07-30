@@ -101,15 +101,14 @@ describe("SidebarItem", () => {
   it("active item has correct classes", () => {
     render(<SidebarItem active>Dashboard</SidebarItem>);
     const button = screen.getByRole("button");
-    expect(button).toHaveClass("bg-gray-100");
-    expect(button).toHaveClass("text-gray-900");
+    expect(button).toHaveAttribute("data-active", "true");
     expect(button).toHaveClass("font-medium");
   });
 
   it("inactive item has correct classes", () => {
     render(<SidebarItem>Dashboard</SidebarItem>);
     const button = screen.getByRole("button");
-    expect(button).toHaveClass("text-gray-600");
+    expect(button).toHaveAttribute("data-active", "false");
   });
 
   it("applies overflow-hidden when collapsed", () => {

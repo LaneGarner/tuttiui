@@ -96,7 +96,7 @@ export const AIInput = forwardRef<HTMLTextAreaElement, AIInputProps>(
     return (
       <div
         className={cn(
-          "relative flex items-end rounded-lg border border-gray-300 bg-white transition-colors focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-transparent",
+          "relative flex items-end rounded-lg border border-tt-border-strong bg-tt-field text-tt-fg transition-colors focus-within:ring-2 focus-within:ring-tt-focus focus-within:border-transparent",
           className
         )}
       >
@@ -108,7 +108,7 @@ export const AIInput = forwardRef<HTMLTextAreaElement, AIInputProps>(
           disabled={disabled || loading}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
-          className="flex-1 resize-none bg-transparent px-4 py-3 text-sm outline-none placeholder:text-gray-400 disabled:cursor-not-allowed disabled:opacity-50"
+          className="flex-1 resize-none bg-transparent px-4 py-3 text-sm outline-none placeholder:text-tt-fg-faint disabled:cursor-not-allowed disabled:opacity-50"
           aria-label={placeholder}
           {...props}
         />
@@ -116,7 +116,7 @@ export const AIInput = forwardRef<HTMLTextAreaElement, AIInputProps>(
           type="button"
           onClick={handleSubmit}
           disabled={isEmpty || loading || disabled}
-          className="shrink-0 p-2 m-1 rounded-md bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          className="shrink-0 p-2 m-1 rounded-md bg-tt-primary text-tt-primary-fg hover:bg-tt-primary-hover disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           aria-label={loading ? "Loading" : "Send"}
         >
           {loading ? (

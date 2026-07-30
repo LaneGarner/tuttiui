@@ -58,8 +58,7 @@ describe("Select", () => {
       <Select aria-label="fruit" error>{renderOptions()}</Select>
     );
     const select = screen.getByRole("combobox");
-    expect(select).toHaveClass("border-red-500");
-    expect(select).toHaveClass("focus-visible:ring-red-500");
+    expect(select).toHaveAttribute("aria-invalid", "true");
   });
 
   it("disables properly", () => {

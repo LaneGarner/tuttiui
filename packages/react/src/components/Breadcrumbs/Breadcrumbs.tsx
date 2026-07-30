@@ -55,7 +55,7 @@ export const BreadcrumbLink = forwardRef<HTMLAnchorElement, BreadcrumbLinkProps>
       <a
         ref={ref}
         className={cn(
-          "text-gray-500 hover:text-gray-900 transition-colors",
+          "text-tt-fg-subtle hover:text-tt-fg transition-colors",
           className
         )}
         {...props}
@@ -78,7 +78,7 @@ export const BreadcrumbSeparator: React.FC<BreadcrumbSeparatorProps> = ({
     <span
       role="presentation"
       aria-hidden="true"
-      className={cn("text-gray-400", className)}
+      className={cn("text-tt-fg-faint", className)}
       {...props}
     >
       {children ?? "/"}
@@ -98,7 +98,7 @@ export const BreadcrumbPage = forwardRef<HTMLSpanElement, BreadcrumbPageProps>(
         role="link"
         aria-current="page"
         aria-disabled="true"
-        className={cn("text-gray-900 font-medium", className)}
+        className={cn("text-tt-fg font-medium", className)}
         {...props}
       />
     );

@@ -101,12 +101,12 @@ describe("OptimisticAction", () => {
     const { rerender } = render(
       <OptimisticAction onAction={onAction} variant="primary">Save</OptimisticAction>
     );
-    expect(screen.getByRole("button")).toHaveClass("bg-blue-600");
+    expect(screen.getByRole("button")).toHaveAttribute("data-variant", "primary");
 
     rerender(
       <OptimisticAction onAction={onAction} variant="danger">Save</OptimisticAction>
     );
-    expect(screen.getByRole("button")).toHaveClass("bg-red-600");
+    expect(screen.getByRole("button")).toHaveAttribute("data-variant", "danger");
   });
 
   it("applies size classes", () => {

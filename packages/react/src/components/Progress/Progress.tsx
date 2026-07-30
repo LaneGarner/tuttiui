@@ -56,6 +56,8 @@ export const Progress = forwardRef<HTMLDivElement, ProgressProps>(
         {...props}
       >
         <div
+          data-part="bar"
+          data-variant={variant ?? "default"}
           className={barVariants({ variant })}
           style={{ width: `${percentage}%` }}
         />

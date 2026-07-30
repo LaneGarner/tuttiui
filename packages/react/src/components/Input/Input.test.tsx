@@ -44,8 +44,7 @@ describe("Input", () => {
   it("shows error state classes", () => {
     render(<Input error placeholder="Error input" />);
     const input = screen.getByPlaceholderText("Error input");
-    expect(input).toHaveClass("border-red-500");
-    expect(input).toHaveClass("focus-visible:ring-red-500");
+    expect(input).toHaveAttribute("aria-invalid", "true");
   });
 
   it("disables properly", () => {
