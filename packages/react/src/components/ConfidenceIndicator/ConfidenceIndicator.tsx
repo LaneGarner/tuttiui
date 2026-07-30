@@ -16,9 +16,9 @@ const sizeClasses: Record<"sm" | "md" | "lg", string> = {
 };
 
 function getBarColor(value: number): string {
-  if (value < 30) return "bg-red-500";
-  if (value < 60) return "bg-amber-500";
-  return "bg-green-500";
+  if (value < 30) return "bg-tt-danger";
+  if (value < 60) return "bg-tt-warning";
+  return "bg-tt-success";
 }
 
 export const ConfidenceIndicator = forwardRef<
@@ -52,16 +52,16 @@ export const ConfidenceIndicator = forwardRef<
         {(label || showPercentage) && (
           <div className="flex items-center justify-between text-sm mb-1">
             {label && (
-              <span className="font-medium text-gray-700">{label}</span>
+              <span className="font-medium text-tt-fg-muted">{label}</span>
             )}
             {showPercentage && (
-              <span className="text-gray-500">{clampedValue}%</span>
+              <span className="text-tt-fg-subtle">{clampedValue}%</span>
             )}
           </div>
         )}
         <div
           className={cn(
-            "rounded-full bg-gray-200 overflow-hidden",
+            "rounded-full bg-tt-surface-3 overflow-hidden",
             sizeClasses[size]
           )}
         >
