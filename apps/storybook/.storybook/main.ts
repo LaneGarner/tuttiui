@@ -7,7 +7,7 @@ const config: StorybookConfig = {
     "../../../packages/react/src/**/*.stories.@(ts|tsx)",
     "../../../packages/react-native/src/**/*.stories.@(ts|tsx)",
   ],
-  addons: ["@storybook/addon-essentials"],
+  addons: ["@storybook/addon-essentials", "@storybook/addon-themes"],
   // Serve the repo's brand assets (logo lockup + marks) at /assets for the
   // manager theme (see manager.ts) and the favicon below.
   staticDirs: [{ from: "../../../assets", to: "/assets" }],

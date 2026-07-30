@@ -189,15 +189,15 @@ export const darkColors: SemanticColors = {
   fgStrong: "#E4E4E7",
   fgMuted: "#D4D4D8",
   fgSubtle: "#A1A1AA",
-  fgFaint: "#71717A",
+  fgFaint: "#8B8B93",
 
   border: "#27272A",
   borderStrong: "#3F3F46",
   focus: p.blue[400],
 
-  primary: p.blue[500],
-  primaryHover: p.blue[400],
-  primaryFg: "#FFFFFF",
+  primary: p.blue[400],
+  primaryHover: p.blue[300],
+  primaryFg: p.blue[950],
   primarySubtle: p.blue[950],
   primaryOnSubtle: p.blue[200],
 
@@ -225,9 +225,9 @@ export const darkColors: SemanticColors = {
   infoOnSubtle: p.blue[200],
   infoBorder: p.blue[800],
 
-  dangerStrong: p.red[500],
-  dangerStrongHover: p.red[400],
-  successStrong: p.green[500],
+  dangerStrong: p.red[400],
+  dangerStrongHover: p.red[300],
+  successStrong: p.green[400],
 
   stream: p.cyan[400],
   streamFg: p.cyan[950],
@@ -237,7 +237,7 @@ export const darkColors: SemanticColors = {
   surfaceSecondary: "#27272A",
   text: "#FAFAFA",
   textSecondary: "#A1A1AA",
-  textTertiary: "#71717A",
+  textTertiary: "#8B8B93",
   primaryDark: p.blue[400],
   error: p.red[400],
 };
