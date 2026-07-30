@@ -6,11 +6,11 @@ import { cn } from "@tutti-ui/shared";
 const alertVariants = cva("relative w-full rounded-lg border p-4", {
   variants: {
     variant: {
-      default: "bg-gray-50 border-gray-200",
-      info: "bg-blue-50 border-blue-200",
-      success: "bg-green-50 border-green-200",
-      warning: "bg-amber-50 border-amber-200",
-      error: "bg-red-50 border-red-200",
+      default: "bg-tt-canvas border-tt-border",
+      info: "bg-tt-primary-subtle border-tt-info-border",
+      success: "bg-tt-success-subtle border-tt-success-border",
+      warning: "bg-tt-warning-subtle border-tt-warning-border",
+      error: "bg-tt-danger-subtle border-tt-danger-border",
     },
   },
   defaultVariants: {
@@ -19,11 +19,11 @@ const alertVariants = cva("relative w-full rounded-lg border p-4", {
 });
 
 const alertTextVariants: Record<string, string> = {
-  default: "text-gray-800",
-  info: "text-blue-800",
-  success: "text-green-800",
-  warning: "text-amber-800",
-  error: "text-red-800",
+  default: "text-tt-fg-strong",
+  info: "text-tt-info-on-subtle",
+  success: "text-tt-success-on-subtle",
+  warning: "text-tt-warning-on-subtle",
+  error: "text-tt-danger-on-subtle",
 };
 
 export interface AlertProps

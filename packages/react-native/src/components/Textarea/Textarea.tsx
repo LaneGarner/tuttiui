@@ -1,14 +1,14 @@
 import { forwardRef, useState } from "react";
 import { View, TextInput, type TextInputProps } from "react-native";
 import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@tutti-ui/shared";
+import { cn, useTheme } from "@tutti-ui/shared";
 
 const textareaContainerVariants = cva(
-  "min-h-[80px] w-full rounded-md border border-gray-300 bg-white px-3 py-2",
+  "min-h-[80px] w-full rounded-md border border-tt-border-strong bg-tt-field px-3 py-2",
   {
     variants: {
       error: {
-        true: "border-red-500",
+        true: "border-tt-danger",
       },
     },
     defaultVariants: {
@@ -17,7 +17,7 @@ const textareaContainerVariants = cva(
   }
 );
 
-const textareaTextVariants = cva("flex-1 text-sm text-gray-900");
+const textareaTextVariants = cva("flex-1 text-sm text-tt-fg");
 
 export interface TextareaProps
   extends Omit<TextInputProps, "editable" | "multiline">,
@@ -28,14 +28,18 @@ export interface TextareaProps
 
 export const Textarea = forwardRef<TextInput, TextareaProps>(
   ({ className, error, disabled, onFocus, onBlur, ...props }, ref) => {
+    // Values that can't be a className read the resolved theme instead of a
+    // hardcoded hex. ThemeContext defaults to lightColors, so a tree without a
+    // ThemeProvider degrades to light rather than crashing.
+    const { colors } = useTheme();
     const [focused, setFocused] = useState(false);
 
     return (
       <View
         className={cn(
           textareaContainerVariants({ error }),
-          focused && !error && "border-blue-500 border-2",
-          error && focused && "border-red-500 border-2",
+          focused && !error && "border-tt-focus border-2",
+          error && focused && "border-tt-danger border-2",
           disabled && "opacity-50",
           className
         )}
@@ -46,7 +50,7 @@ export const Textarea = forwardRef<TextInput, TextareaProps>(
           multiline
           textAlignVertical="top"
           editable={!disabled}
-          placeholderTextColor="#9ca3af"
+          placeholderTextColor={colors.fgFaint}
           accessibilityRole="text"
           accessibilityState={{ disabled }}
           onFocus={(e) => {

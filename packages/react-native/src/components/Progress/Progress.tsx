@@ -4,7 +4,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@tutti-ui/shared";
 
 const progressVariants = cva(
-  "relative w-full overflow-hidden rounded-full bg-gray-200",
+  "relative w-full overflow-hidden rounded-full bg-tt-surface-3",
   {
     variants: {
       size: {
@@ -20,10 +20,10 @@ const progressVariants = cva(
 );
 
 const barVariantClasses: Record<string, string> = {
-  default: "bg-blue-600",
-  success: "bg-green-500",
-  warning: "bg-amber-500",
-  error: "bg-red-500",
+  default: "bg-tt-primary",
+  success: "bg-tt-success",
+  warning: "bg-tt-warning",
+  error: "bg-tt-danger",
 };
 
 export interface ProgressProps

@@ -130,7 +130,7 @@ export const AvatarFallback = forwardRef<View, AvatarFallbackProps>(
       <View
         ref={ref}
         className={cn(
-          "flex h-full w-full items-center justify-center rounded-full bg-gray-100",
+          "flex h-full w-full items-center justify-center rounded-full bg-tt-surface-2",
           className
         )}
         {...props}
@@ -138,7 +138,7 @@ export const AvatarFallback = forwardRef<View, AvatarFallbackProps>(
         {typeof children === "string" ? (
           <Text
             className={cn(
-              "text-gray-600 font-medium",
+              "text-tt-fg-muted font-medium",
               fallbackTextVariants[size]
             )}
           >

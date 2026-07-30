@@ -8,11 +8,11 @@ const toastVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-white border-gray-200",
-        success: "bg-green-50 border-green-200",
-        error: "bg-red-50 border-red-200",
-        warning: "bg-amber-50 border-amber-200",
-        info: "bg-blue-50 border-blue-200",
+        default: "bg-tt-surface border-tt-border",
+        success: "bg-tt-success-subtle border-tt-success-border",
+        error: "bg-tt-danger-subtle border-tt-danger-border",
+        warning: "bg-tt-warning-subtle border-tt-warning-border",
+        info: "bg-tt-primary-subtle border-tt-info-border",
       },
     },
     defaultVariants: {
@@ -22,11 +22,11 @@ const toastVariants = cva(
 );
 
 const toastTextVariants: Record<string, string> = {
-  default: "text-gray-900",
-  success: "text-green-800",
-  error: "text-red-800",
-  warning: "text-amber-800",
-  info: "text-blue-800",
+  default: "text-tt-fg",
+  success: "text-tt-success-on-subtle",
+  error: "text-tt-danger-on-subtle",
+  warning: "text-tt-warning-on-subtle",
+  info: "text-tt-info-on-subtle",
 };
 
 export interface ToastProps

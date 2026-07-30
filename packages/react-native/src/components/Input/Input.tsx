@@ -1,10 +1,10 @@
 import { forwardRef, useState } from "react";
 import { View, TextInput, type TextInputProps } from "react-native";
 import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@tutti-ui/shared";
+import { cn, useTheme } from "@tutti-ui/shared";
 
 const inputContainerVariants = cva(
-  "rounded-md border border-gray-300 bg-white",
+  "rounded-md border border-tt-border-strong bg-tt-field",
   {
     variants: {
       size: {
@@ -19,7 +19,7 @@ const inputContainerVariants = cva(
   }
 );
 
-const inputTextVariants = cva("flex-1 text-gray-900", {
+const inputTextVariants = cva("flex-1 text-tt-fg", {
   variants: {
     size: {
       sm: "text-sm",
@@ -41,6 +41,10 @@ export interface InputProps
 
 export const Input = forwardRef<TextInput, InputProps>(
   ({ className, size, error, disabled, onFocus, onBlur, ...props }, ref) => {
+    // Values that can't be a className read the resolved theme instead of a
+    // hardcoded hex. ThemeContext defaults to lightColors, so a tree without a
+    // ThemeProvider degrades to light rather than crashing.
+    const { colors } = useTheme();
     const [focused, setFocused] = useState(false);
 
     return (
@@ -48,9 +52,9 @@ export const Input = forwardRef<TextInput, InputProps>(
         className={cn(
           inputContainerVariants({ size }),
           "justify-center",
-          focused && !error && "border-blue-500 border-2",
-          error && "border-red-500",
-          error && focused && "border-red-500 border-2",
+          focused && !error && "border-tt-focus border-2",
+          error && "border-tt-danger",
+          error && focused && "border-tt-danger border-2",
           disabled && "opacity-50",
           className
         )}
@@ -59,7 +63,7 @@ export const Input = forwardRef<TextInput, InputProps>(
           ref={ref}
           className={cn(inputTextVariants({ size }))}
           editable={!disabled}
-          placeholderTextColor="#9ca3af"
+          placeholderTextColor={colors.fgFaint}
           accessibilityRole="text"
           accessibilityState={{ disabled }}
           onFocus={(e) => {

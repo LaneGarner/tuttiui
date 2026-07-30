@@ -6,8 +6,8 @@ import { cn } from "@tutti-ui/shared";
 const dividerVariants = cva("shrink-0", {
   variants: {
     orientation: {
-      horizontal: "w-full border-t border-gray-200",
-      vertical: "h-full border-l border-gray-200 self-stretch",
+      horizontal: "w-full border-t border-tt-border",
+      vertical: "h-full border-l border-tt-border self-stretch",
     },
   },
   defaultVariants: {

@@ -63,7 +63,7 @@ export const DialogOverlay = forwardRef<View, DialogOverlayProps>(
     return (
       <Pressable
         ref={ref}
-        className={cn("absolute inset-0 bg-black/50", className)}
+        className={cn("absolute inset-0 bg-tt-overlay", className)}
         onPress={() => onOpenChange(false)}
         accessibilityLabel="Close dialog"
         {...props}
@@ -87,7 +87,7 @@ export const DialogContent = forwardRef<View, DialogContentProps>(
           ref={ref}
           accessibilityRole={"dialog" as any}
           className={cn(
-            "w-11/12 max-w-lg rounded-lg bg-white p-6 shadow-lg",
+            "w-11/12 max-w-lg rounded-lg bg-tt-surface p-6 shadow-lg",
             className
           )}
           {...props}
@@ -141,7 +141,7 @@ export const DialogDescription = forwardRef<Text, DialogDescriptionProps>(
     return (
       <Text
         ref={ref}
-        className={cn("text-sm text-gray-500", className)}
+        className={cn("text-sm text-tt-fg-subtle", className)}
         {...props}
       />
     );
@@ -184,7 +184,7 @@ export const DialogClose = forwardRef<View, DialogCloseProps>(
         {...props}
       >
         {children ?? (
-          <Text className="text-gray-500 text-lg leading-none">
+          <Text className="text-tt-fg-subtle text-lg leading-none">
             {"\u2715"}
           </Text>
         )}

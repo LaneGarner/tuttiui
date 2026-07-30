@@ -9,8 +9,8 @@ const radioOuterVariants = cva(
   {
     variants: {
       checked: {
-        true: "border-blue-600",
-        false: "border-gray-300",
+        true: "border-tt-primary",
+        false: "border-tt-border-strong",
       },
       disabled: {
         true: "opacity-50",
@@ -24,7 +24,7 @@ const radioOuterVariants = cva(
   }
 );
 
-const radioInnerVariants = cva("rounded-full bg-blue-600", {
+const radioInnerVariants = cva("rounded-full bg-tt-primary", {
   variants: {
     checked: {
       true: "h-2.5 w-2.5",

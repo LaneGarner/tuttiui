@@ -14,7 +14,7 @@ export const FormHint = forwardRef<Text, FormHintProps>(
     return (
       <Text
         ref={ref}
-        className={cn("text-sm text-gray-500", className)}
+        className={cn("text-sm text-tt-fg-subtle", className)}
         {...props}
       >
         {children}

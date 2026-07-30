@@ -86,7 +86,7 @@ export const TabsList = forwardRef<View, TabsListProps>(
         ref={ref}
         accessibilityRole={"tablist" as any}
         className={cn(
-          "flex-row items-center gap-1 border-b border-gray-200",
+          "flex-row items-center gap-1 border-b border-tt-border",
           className
         )}
         {...props}
@@ -102,8 +102,8 @@ TabsList.displayName = "TabsList";
 const triggerTextVariants = cva("text-sm font-medium", {
   variants: {
     active: {
-      true: "text-blue-600",
-      false: "text-gray-500",
+      true: "text-tt-primary",
+      false: "text-tt-fg-subtle",
     },
   },
   defaultVariants: {
@@ -128,7 +128,7 @@ export const TabsTrigger = forwardRef<View, TabsTriggerProps>(
         accessibilityState={{ selected: isActive }}
         className={cn(
           "items-center justify-center px-3 py-2",
-          isActive && "border-b-2 border-blue-600 -mb-px",
+          isActive && "border-b-2 border-tt-primary -mb-px",
           className
         )}
         onPress={() => ctx.onValueChange(value)}

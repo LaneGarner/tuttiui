@@ -3,12 +3,12 @@ import { View, Text, type ViewProps, type TextProps } from "react-native";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@tutti-ui/shared";
 
-const cardVariants = cva("rounded-lg border bg-white", {
+const cardVariants = cva("rounded-lg border bg-tt-surface", {
   variants: {
     variant: {
-      default: "border-gray-200 shadow-sm",
-      outline: "border-gray-200",
-      elevated: "border-gray-200 shadow-md",
+      default: "border-tt-border shadow-sm",
+      outline: "border-tt-border",
+      elevated: "border-tt-border shadow-md",
     },
   },
   defaultVariants: {
@@ -55,7 +55,7 @@ export const CardTitle = forwardRef<Text, CardTitleProps>(
     return (
       <Text
         ref={ref}
-        className={cn("text-lg font-semibold leading-none tracking-tight text-gray-900", className)}
+        className={cn("text-lg font-semibold leading-none tracking-tight text-tt-fg", className)}
         {...props}
       />
     );
@@ -71,7 +71,7 @@ export const CardDescription = forwardRef<Text, CardDescriptionProps>(
     return (
       <Text
         ref={ref}
-        className={cn("text-sm text-gray-500", className)}
+        className={cn("text-sm text-tt-fg-subtle", className)}
         {...props}
       />
     );

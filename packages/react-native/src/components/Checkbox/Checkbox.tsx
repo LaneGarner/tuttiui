@@ -1,11 +1,11 @@
 import { forwardRef, useState } from "react";
 import { Pressable, View, type ViewProps } from "react-native";
 import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@tutti-ui/shared";
+import { cn, useTheme } from "@tutti-ui/shared";
 import { CheckIcon } from "../../primitives";
 
 const checkboxVariants = cva(
-  "items-center justify-center rounded border border-gray-300 bg-white",
+  "items-center justify-center rounded border border-tt-border-strong bg-tt-field",
   {
     variants: {
       size: {
@@ -48,6 +48,10 @@ export const Checkbox = forwardRef<View, CheckboxProps>(
     },
     ref
   ) => {
+    // Values that can't be a className read the resolved theme instead of a
+    // hardcoded hex. ThemeContext defaults to lightColors, so a tree without a
+    // ThemeProvider degrades to light rather than crashing.
+    const { colors } = useTheme();
     const isControlled = controlledChecked !== undefined;
     const [uncontrolledChecked, setUncontrolledChecked] = useState(defaultChecked);
     const isChecked = isControlled ? controlledChecked : uncontrolledChecked;
@@ -72,14 +76,14 @@ export const Checkbox = forwardRef<View, CheckboxProps>(
         accessibilityState={{ checked: isChecked, disabled }}
         className={cn(
           checkboxVariants({ size }),
-          isChecked && "bg-blue-600 border-blue-600",
+          isChecked && "bg-tt-primary border-tt-primary",
           disabled && "opacity-50",
           className
         )}
         {...props}
       >
         {isChecked && (
-          <CheckIcon size={checkIconSizes[sizeKey]} color="#ffffff" />
+          <CheckIcon size={checkIconSizes[sizeKey]} color={colors.primaryFg} />
         )}
       </Pressable>
     );

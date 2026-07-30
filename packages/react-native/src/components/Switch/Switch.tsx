@@ -76,19 +76,21 @@ export const Switch = forwardRef<View, SwitchProps>(
         accessibilityState={{ checked: isChecked, disabled }}
         className={cn(
           switchTrackVariants({ size }),
-          isChecked ? "bg-blue-600" : "bg-gray-200",
+          isChecked ? "bg-tt-primary" : "bg-tt-surface-3",
           disabled && "opacity-50",
           className
         )}
         {...props}
       >
         <Animated.View
+          // The thumb color is a className now rather than an inline hex, so
+          // it follows the theme like everything else.
+          className="bg-tt-surface"
           style={[
             {
               width: dimension,
               height: dimension,
               borderRadius: dimension / 2,
-              backgroundColor: "#ffffff",
               transform: [{ translateX }],
             },
           ]}

@@ -19,7 +19,7 @@ export const FormError = forwardRef<Text, FormErrorProps>(
       <Text
         ref={ref}
         accessibilityRole="alert"
-        className={cn("text-sm font-medium text-red-500", className)}
+        className={cn("text-sm font-medium text-tt-danger", className)}
         {...props}
       >
         {children}

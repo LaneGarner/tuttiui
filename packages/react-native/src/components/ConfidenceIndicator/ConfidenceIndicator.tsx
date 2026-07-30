@@ -16,9 +16,9 @@ const sizeStyles: Record<"sm" | "md" | "lg", { height: number; width: number }> 
 };
 
 function getBarColorClass(value: number): string {
-  if (value < 30) return "bg-red-500";
-  if (value < 60) return "bg-amber-500";
-  return "bg-green-500";
+  if (value < 30) return "bg-tt-danger";
+  if (value < 60) return "bg-tt-warning";
+  return "bg-tt-success";
 }
 
 export const ConfidenceIndicator = forwardRef<View, ConfidenceIndicatorProps>(
@@ -52,19 +52,19 @@ export const ConfidenceIndicator = forwardRef<View, ConfidenceIndicatorProps>(
         {(label || showPercentage) && (
           <View className="flex-row items-center justify-between mb-1">
             {label && (
-              <Text className="font-medium text-sm text-gray-700">
+              <Text className="font-medium text-sm text-tt-fg-muted">
                 {label}
               </Text>
             )}
             {showPercentage && (
-              <Text className="text-sm text-gray-500" testID="confidence-percentage">
+              <Text className="text-sm text-tt-fg-subtle" testID="confidence-percentage">
                 {clampedValue}%
               </Text>
             )}
           </View>
         )}
         <View
-          className="rounded-full bg-gray-200 overflow-hidden"
+          className="rounded-full bg-tt-surface-3 overflow-hidden"
           style={{ height: dimensions.height, width: dimensions.width }}
         >
           <View

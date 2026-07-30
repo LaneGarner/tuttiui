@@ -13,7 +13,7 @@ export const Skeleton = forwardRef<View, SkeletonProps>(
       <AnimatedPulse duration={duration}>
         <View
           ref={ref}
-          className={cn("rounded-md bg-gray-200", className)}
+          className={cn("rounded-md bg-tt-surface-3", className)}
           {...props}
         />
       </AnimatedPulse>
