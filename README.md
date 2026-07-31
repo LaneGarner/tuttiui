@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/tuttiui-lockup.svg" alt="" width="360" />
+</p>
+
 # tutti-ui
 
 A comprehensive component library for React and React Native with shared design tokens, accessibility-first components, and AI-native UI primitives.
