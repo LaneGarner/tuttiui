@@ -83,6 +83,9 @@ export type {
   TabsContentProps,
 } from "./components/Tabs";
 
+export { TabBar, TabBarItem, tabBarItemTextVariants } from "./components/TabBar";
+export type { TabBarProps, TabBarItemProps } from "./components/TabBar";
+
 export { RadioGroup, RadioItem, radioOuterVariants, radioInnerVariants } from "./components/Radio";
 export type { RadioGroupProps, RadioItemProps } from "./components/Radio";
 

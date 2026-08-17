@@ -190,6 +190,13 @@ export {
   type SidebarItemProps,
 } from "./components/Sidebar";
 export {
+  TabBar,
+  TabBarItem,
+  tabBarItemVariants,
+  type TabBarProps,
+  type TabBarItemProps,
+} from "./components/TabBar";
+export {
   CommandPalette,
   type CommandPaletteProps,
   type CommandItem,
