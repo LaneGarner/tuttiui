@@ -1,4 +1,13 @@
 export { Button, buttonVariants, type ButtonProps } from "./components/Button";
+export { Badge, badgeVariants, type BadgeProps } from "./components/Badge";
+export {
+  SegmentedControl,
+  Segment,
+  segmentedControlVariants,
+  segmentVariants,
+  type SegmentedControlProps,
+  type SegmentProps,
+} from "./components/SegmentedControl";
 export { Input, inputVariants, type InputProps } from "./components/Input";
 export { Label, labelVariants, type LabelProps } from "./components/Label";
 export { Textarea, textareaVariants, type TextareaProps } from "./components/Textarea";

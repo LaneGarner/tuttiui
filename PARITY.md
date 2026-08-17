@@ -2,9 +2,10 @@
 
 Status of each `@tutti-ui/react` component family in `@tutti-ui/react-native`.
 
-**Summary: 27 of 33 component families ported.** Stepper's native port is
-planned; the remaining 5 are web-idiom components that either map to a
-different mobile pattern or are intentionally web-only (see the last table).
+**Summary: 27 of 36 component families ported.** Native ports for the 0.3.0
+additions (Stepper, Collapsible, Badge, SegmentedControl) are planned; the
+remaining 5 are web-idiom components that either map to a different mobile
+pattern or are intentionally web-only (see the last table).
 
 Legend: ✅ done · 🔜 deferred · 🌐 web-only by design
 
@@ -20,6 +21,7 @@ Legend: ✅ done · 🔜 deferred · 🌐 web-only by design
 | RadioGroup / RadioItem | ✅ | Context-based, controlled/uncontrolled, `accessibilityRole="radio"` |
 | Switch | ✅ | Track + thumb, `accessibilityRole="switch"` |
 | Stepper | 🔜 | Planned. Web version ships first (`role="spinbutton"`, long-press repeat); RN port will use `Pressable` + `accessibilityRole="adjustable"` with `accessibilityActions` increment/decrement |
+| SegmentedControl / Segment | 🔜 | Planned. Web version is controlled-only with radiogroup semantics and arrow-key navigation; RN port will use `Pressable` segments with `accessibilityRole="radio"` |
 | Label | ✅ | Required asterisk, same API |
 | FormField / FormError / FormHint | ✅ | Same context API; `FormError` uses `accessibilityRole="alert"` |
 
@@ -31,6 +33,7 @@ Legend: ✅ done · 🔜 deferred · 🌐 web-only by design
 | Avatar (+ Image/Fallback) | ✅ | RN `Image` load/error tracking |
 | Tooltip | ✅ | **Long-press** to show (no hover on touch); auto-hides after `duration` ms; `top`/`bottom` sides only |
 | Alert | ✅ | Same variants, dismiss button |
+| Badge | 🔜 | Planned. Same variants/sizes; `View` + `Text` with the semantic subtle tokens |
 | Dialog | ✅ | RN `Modal` (`transparent` + fade) instead of portal; hardware back closes via `onRequestClose` |
 | Toast | ✅ | `ToastProvider` + `useToast`, auto-dismiss |
 | Skeleton | ✅ | Pulse animation via react-native-reanimated |
