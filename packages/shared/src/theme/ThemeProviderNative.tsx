@@ -35,6 +35,32 @@ export function ThemeProvider({
   const theme = resolveTheme(preference, systemTheme);
   const colors = theme === "dark" ? darkColors : lightColors;
 
+  // Web puts `.dark` on <html>; native has no such class, so NativeWind needs
+  // telling directly or the `--tt-*` variables never flip and every component
+  // stays light no matter what this provider resolves. Doing it here makes the
+  // provider the single switch for both the variable layer and `colors`.
+  //
+  // Imported lazily and defensively: nativewind is a peer of the components,
+  // not of this package, and a consumer using ThemeProvider purely as a state
+  // holder shouldn't be forced to install it.
+  useEffect(() => {
+    let cancelled = false;
+    // Specifier held in a variable on purpose: nativewind is not a dependency
+    // of this package, so a literal import would fail typecheck here even
+    // though it resolves fine in any app that actually renders the components.
+    const specifier = "nativewind";
+    import(specifier)
+      .then((mod: { colorScheme?: { set?: (mode: ThemeMode) => void } }) => {
+        if (!cancelled) mod.colorScheme?.set?.(theme);
+      })
+      .catch(() => {
+        /* nativewind not installed — `colors` still resolves correctly */
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [theme]);
+
   const value = useMemo(
     () => ({ theme, preference, setPreference, colors }),
     [theme, preference, setPreference, colors]

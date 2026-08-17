@@ -38,7 +38,7 @@ This is a pnpm + Turborepo monorepo for a design system targeting React (web) an
 
 ### Package roles
 
-- **`packages/tokens`** — Design tokens (colors, spacing, typography, radii, shadows + `nativeShadows` for RN shadow objects). All numeric values are unitless px; conversion to rem happens at the consumption boundary (see `packages/react/src/tailwind.ts`). Semantic colors (`lightColors`/`darkColors`) are sourced from tribe-tracker's theme.
+- **`packages/tokens`** — Design tokens (colors, spacing, typography, radii, shadows + `nativeShadows` for RN shadow objects). All numeric values are unitless px; conversion to rem happens at the consumption boundary (see `packages/react/src/tailwind.ts`). `lightColors`/`darkColors` hold the 55 semantic colors; `buildThemeCss()` generates `dist/theme.css` from them so the stylesheet cannot drift from the objects.
 - **`packages/shared`** — `cn()` (clsx + tailwind-merge, works with NativeWind classNames too), `ThemeProvider`/`useTheme`. The web entry (`.`) detects system preference via `matchMedia`; the native entry (`./native`, built from `src/native.ts`) uses RN's `useColorScheme` (`ThemeProviderNative.tsx`). Both accept `onPreferenceChange` for persistence (no storage baked in).
 - **`packages/react`** — Web components built with `forwardRef` + `cva` (class-variance-authority) + `cn()`. Exports a Tailwind v3 preset at `@tutti-ui/react/tailwind` that transforms token px values to rem. Tests use Jest + @testing-library/react.
 - **`packages/react-native`** — RN components styled with NativeWind classNames, same CVA variants and prop APIs as the web versions where the platform allows. Accessibility via `accessibilityRole`/`accessibilityLabel`/`accessibilityState`/`accessibilityValue`. Tests run against lightweight RN mocks (`jest/react-native-mock.js`) with a `@testing-library/react-native`-compatible shim (`jest/testing-library-shim.js`) on jsdom — no Metro/babel needed. `src/nativewind.d.ts` augments RN types with `className`.
@@ -53,6 +53,9 @@ This is a pnpm + Turborepo monorepo for a design system targeting React (web) an
 - Controlled/uncontrolled pattern: check `controlledValue !== undefined`, use internal useState for uncontrolled
 - Portal-based components (Dialog, CommandPalette) use `ReactDOM.createPortal` to `document.body`
 - No external animation libraries — CSS animations/transitions only (`animate-pulse`, `animate-spin`, `transition-*`)
+- **Colors are always semantic.** Components use `bg-tt-surface` / `text-tt-fg-muted` / `border-tt-border`, never `bg-white` or `text-gray-700`. Each name resolves to a `--tt-*` variable, which is what makes dark mode and consumer retheming work with no `dark:` variants in component source. A literal color class in a component is a bug; `grep -rE '(bg|text|border|ring)-(white|gray|blue|green|amber|red)' packages/*/src/components --include=*.tsx` should stay empty
+- Variant components expose `data-variant` / `data-state` / `data-level` on the styled node. Tests assert those rather than class strings — a class-name assertion churns on every restyle and passes happily when a theme is unreadable
+- Contrast is verified in a real browser, not Jest: `pnpm --filter @tutti-ui/storybook test:contrast` renders both themes and asserts WCAG AA. jsdom has no stylesheet, so `getComputedStyle` there tells you nothing about color
 - In `exports` fields, `types` must come before `import`/`require` to avoid bundler warnings
 - Jest config is `.js` (not `.ts`) to avoid needing ts-node; uses `moduleNameMapper` to resolve workspace packages to source
 - Tests use Jest + @testing-library/react + @testing-library/user-event (web); the RN package uses the same Jest/jsdom stack against RN mocks via `moduleNameMapper`

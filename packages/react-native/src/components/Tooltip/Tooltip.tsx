@@ -125,14 +125,14 @@ export const TooltipContent = forwardRef<View, TooltipContentProps>(
         accessibilityRole="text"
         accessibilityLiveRegion="polite"
         className={cn(
-          "absolute z-50 rounded-md bg-gray-900 px-3 py-1.5 shadow-md",
+          "absolute z-50 rounded-md bg-tt-inverse px-3 py-1.5 shadow-md",
           sideClasses[side],
           className
         )}
         {...props}
       >
         {typeof children === "string" ? (
-          <Text className="text-xs text-white">{children}</Text>
+          <Text className="text-xs text-tt-inverse-fg">{children}</Text>
         ) : (
           children
         )}

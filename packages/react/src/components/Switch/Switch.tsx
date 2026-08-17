@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@tutti-ui/shared";
 
 const switchVariants = cva(
-  "peer inline-flex shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+  "peer inline-flex shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tt-focus focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
   {
     variants: {
       size: {
@@ -19,7 +19,7 @@ const switchVariants = cva(
 );
 
 const thumbVariants = cva(
-  "pointer-events-none block rounded-full bg-white shadow-lg ring-0 transition-transform",
+  "pointer-events-none block rounded-full bg-tt-surface shadow-lg ring-0 transition-transform",
   {
     variants: {
       size: {
@@ -87,7 +87,7 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
         disabled={disabled}
         className={cn(
           switchVariants({ size }),
-          isChecked ? "bg-blue-600" : "bg-gray-200",
+          isChecked ? "bg-tt-primary" : "bg-tt-surface-3",
           className
         )}
         onClick={handleToggle}

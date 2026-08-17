@@ -20,7 +20,7 @@ const ChatBubble = ({ message }: { message: ChatMessage }) => {
     return (
       <View className="items-center">
         <View>
-          <Text className="text-xs text-gray-400 italic">
+          <Text className="text-xs text-tt-fg-faint italic">
             {message.content}
           </Text>
           {message.timestamp && (
@@ -41,13 +41,13 @@ const ChatBubble = ({ message }: { message: ChatMessage }) => {
         className={cn(
           "max-w-[80%] rounded-2xl px-4 py-2.5",
           isUser
-            ? "rounded-br-sm bg-blue-600"
-            : "rounded-bl-sm bg-gray-100"
+            ? "rounded-br-sm bg-tt-primary"
+            : "rounded-bl-sm bg-tt-surface-2"
         )}
       >
         <Text
           className={cn(
-            isUser ? "text-white" : "text-gray-900"
+            isUser ? "text-tt-primary-fg" : "text-tt-fg"
           )}
         >
           {message.content}
@@ -56,7 +56,7 @@ const ChatBubble = ({ message }: { message: ChatMessage }) => {
           <Text
             className={cn(
               "text-xs opacity-60 mt-1",
-              isUser ? "text-white" : "text-gray-900"
+              isUser ? "text-tt-primary-fg" : "text-tt-fg"
             )}
           >
             {message.timestamp.toLocaleTimeString()}
@@ -70,7 +70,7 @@ const ChatBubble = ({ message }: { message: ChatMessage }) => {
 const LoadingDot = ({ delay }: { delay: number }) => (
   <AnimatedPulse duration={1500}>
     <View
-      className="h-2 w-2 rounded-full bg-gray-400"
+      className="h-2 w-2 rounded-full bg-tt-fg-faint"
       testID="loading-dot"
     />
   </AnimatedPulse>
@@ -78,7 +78,7 @@ const LoadingDot = ({ delay }: { delay: number }) => (
 
 const LoadingIndicator = () => (
   <View className="items-start">
-    <View className="max-w-[80%] rounded-2xl rounded-bl-sm px-4 py-2.5 bg-gray-100">
+    <View className="max-w-[80%] rounded-2xl rounded-bl-sm px-4 py-2.5 bg-tt-surface-2">
       <View className="flex-row gap-1.5 px-4 py-2.5">
         <LoadingDot delay={0} />
         <LoadingDot delay={150} />

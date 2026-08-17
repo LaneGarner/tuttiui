@@ -2,12 +2,12 @@ import { forwardRef, type HTMLAttributes } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@tutti-ui/shared";
 
-const cardVariants = cva("rounded-lg border bg-white", {
+const cardVariants = cva("rounded-lg border bg-tt-surface text-tt-fg", {
   variants: {
     variant: {
-      default: "border-gray-200 shadow-sm",
-      outline: "border-gray-200",
-      elevated: "border-gray-200 shadow-md",
+      default: "border-tt-border shadow-sm",
+      outline: "border-tt-border",
+      elevated: "border-tt-border shadow-md",
     },
   },
   defaultVariants: {
@@ -24,6 +24,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
     return (
       <div
         ref={ref}
+        data-variant={variant ?? "default"}
         className={cn(cardVariants({ variant }), className)}
         {...props}
       />
@@ -78,7 +79,7 @@ export const CardDescription = forwardRef<
   return (
     <p
       ref={ref}
-      className={cn("text-sm text-gray-500", className)}
+      className={cn("text-sm text-tt-fg-subtle", className)}
       {...props}
     />
   );

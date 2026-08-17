@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/LaneGarner/tutti-ui/main/assets/tuttiui-lockup.svg" alt="tutti-ui" width="280" />
+</p>
+
 # @tutti-ui/react
 
 A React component library with 32 component families and 60+ exports, built for web with Tailwind CSS.

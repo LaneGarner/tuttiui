@@ -4,7 +4,7 @@ import { cn } from "@tutti-ui/shared";
 import { useRadioGroupContext } from "./RadioGroup";
 
 const radioItemVariants = cva(
-  "peer shrink-0 h-4 w-4 rounded-full border border-gray-300 bg-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 checked:border-blue-600 accent-blue-600"
+  "peer shrink-0 h-4 w-4 rounded-full border border-tt-border-strong bg-tt-field transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tt-focus focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 checked:border-tt-primary accent-tt-primary"
 );
 
 export interface RadioItemProps

@@ -5,11 +5,11 @@ import { cn } from "@tutti-ui/shared";
 const alertVariants = cva("relative w-full rounded-lg border p-4", {
   variants: {
     variant: {
-      default: "bg-gray-50 border-gray-200 text-gray-800",
-      info: "bg-blue-50 border-blue-200 text-blue-800",
-      success: "bg-green-50 border-green-200 text-green-800",
-      warning: "bg-amber-50 border-amber-200 text-amber-800",
-      error: "bg-red-50 border-red-200 text-red-800",
+      default: "bg-tt-canvas border-tt-border text-tt-fg-strong",
+      info: "bg-tt-info-subtle border-tt-info-border text-tt-info-on-subtle",
+      success: "bg-tt-success-subtle border-tt-success-border text-tt-success-on-subtle",
+      warning: "bg-tt-warning-subtle border-tt-warning-border text-tt-warning-on-subtle",
+      error: "bg-tt-danger-subtle border-tt-danger-border text-tt-danger-on-subtle",
     },
   },
   defaultVariants: {
@@ -29,6 +29,7 @@ const Alert = forwardRef<HTMLDivElement, AlertProps>(
       <div
         ref={ref}
         role="alert"
+        data-variant={variant ?? "default"}
         className={cn(alertVariants({ variant }), className)}
         {...props}
       >

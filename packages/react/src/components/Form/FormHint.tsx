@@ -12,7 +12,7 @@ export const FormHint = ({ children, className, ...props }: FormHintProps) => {
   return (
     <p
       id={`${id}-hint`}
-      className={cn("text-sm text-gray-500", className)}
+      className={cn("text-sm text-tt-fg-subtle", className)}
       {...props}
     >
       {children}

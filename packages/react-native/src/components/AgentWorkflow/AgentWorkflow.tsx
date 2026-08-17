@@ -24,21 +24,21 @@ export interface AgentWorkflowProps extends ViewProps {
 }
 
 const stateContainerClasses: Record<WorkflowState, string> = {
-  pending: "bg-gray-200",
-  running: "bg-blue-500",
-  streaming: "bg-cyan-500",
-  completed: "bg-green-500",
-  failed: "bg-red-500",
-  "needs-approval": "bg-amber-500",
+  pending: "bg-tt-surface-3",
+  running: "bg-tt-info",
+  streaming: "bg-tt-stream",
+  completed: "bg-tt-success",
+  failed: "bg-tt-danger",
+  "needs-approval": "bg-tt-warning",
 };
 
 const stateTextClasses: Record<WorkflowState, string> = {
-  pending: "text-gray-500",
-  running: "text-white",
-  streaming: "text-white",
-  completed: "text-white",
-  failed: "text-white",
-  "needs-approval": "text-white",
+  pending: "text-tt-fg-subtle",
+  running: "text-tt-info-fg",
+  streaming: "text-tt-stream-fg",
+  completed: "text-tt-success-fg",
+  failed: "text-tt-danger-fg",
+  "needs-approval": "text-tt-warning-fg",
 };
 
 const stateIcons: Record<WorkflowState, string> = {
@@ -89,18 +89,18 @@ export const AgentWorkflow = forwardRef<View, AgentWorkflowProps>(
                 <StepIndicator state={step.state} />
               </View>
               <View className="flex-1 min-w-0">
-                <Text className="font-medium text-sm text-gray-900">
+                <Text className="font-medium text-sm text-tt-fg">
                   {step.label}
                 </Text>
                 {step.description && (
-                  <Text className="text-xs text-gray-500">
+                  <Text className="text-xs text-tt-fg-subtle">
                     {step.description}
                   </Text>
                 )}
                 {step.state === "running" && step.progress !== undefined && (
-                  <View className="mt-1.5 h-1 bg-gray-200 rounded-full overflow-hidden">
+                  <View className="mt-1.5 h-1 bg-tt-surface-3 rounded-full overflow-hidden">
                     <View
-                      className="h-full bg-blue-500 rounded-full"
+                      className="h-full bg-tt-info rounded-full"
                       style={{
                         width: `${Math.min(Math.max(step.progress, 0), 100)}%`,
                       }}
@@ -112,8 +112,8 @@ export const AgentWorkflow = forwardRef<View, AgentWorkflowProps>(
             </View>
             {index < steps.length - 1 && (
               <View
-                className="ml-4 h-6"
-                style={{ borderLeftWidth: 2, borderLeftColor: "#e5e7eb" }}
+                className="ml-4 h-6 border-l-2 border-tt-border"
+                style={{ borderLeftWidth: 2 }}
                 testID="connector-line"
               />
             )}

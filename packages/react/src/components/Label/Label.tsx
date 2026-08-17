@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@tutti-ui/shared";
 
 const labelVariants = cva(
-  "text-sm font-medium text-gray-700 peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+  "text-sm font-medium text-tt-fg-muted peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
 );
 
 export interface LabelProps
@@ -21,7 +21,7 @@ export const Label = forwardRef<HTMLLabelElement, LabelProps>(
         {...props}
       >
         {children}
-        {required && <span className="text-red-500 ml-1" aria-hidden="true">*</span>}
+        {required && <span className="text-tt-danger ml-1" aria-hidden="true">*</span>}
       </label>
     );
   }

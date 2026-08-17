@@ -11,31 +11,31 @@ describe("Alert", () => {
   it("renders default variant with correct classes", () => {
     render(<Alert>Default</Alert>);
     const alert = screen.getByRole("alert");
-    expect(alert).toHaveClass("bg-gray-50", "border-gray-200", "text-gray-800");
+    expect(alert).toHaveAttribute("data-variant", "default");
   });
 
   it("renders info variant with correct classes", () => {
     render(<Alert variant="info">Info</Alert>);
     const alert = screen.getByRole("alert");
-    expect(alert).toHaveClass("bg-blue-50", "border-blue-200", "text-blue-800");
+    expect(alert).toHaveAttribute("data-variant", "info");
   });
 
   it("renders success variant with correct classes", () => {
     render(<Alert variant="success">Success</Alert>);
     const alert = screen.getByRole("alert");
-    expect(alert).toHaveClass("bg-green-50", "border-green-200", "text-green-800");
+    expect(alert).toHaveAttribute("data-variant", "success");
   });
 
   it("renders warning variant with correct classes", () => {
     render(<Alert variant="warning">Warning</Alert>);
     const alert = screen.getByRole("alert");
-    expect(alert).toHaveClass("bg-amber-50", "border-amber-200", "text-amber-800");
+    expect(alert).toHaveAttribute("data-variant", "warning");
   });
 
   it("renders error variant with correct classes", () => {
     render(<Alert variant="error">Error</Alert>);
     const alert = screen.getByRole("alert");
-    expect(alert).toHaveClass("bg-red-50", "border-red-200", "text-red-800");
+    expect(alert).toHaveAttribute("data-variant", "error");
   });
 
   it("renders AlertTitle", () => {

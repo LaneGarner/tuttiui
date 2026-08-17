@@ -17,7 +17,7 @@ const ChatBubble = ({ message }: { message: ChatMessage }) => {
   if (message.role === "system") {
     return (
       <div className="flex justify-center">
-        <div className="text-xs text-gray-400 italic">
+        <div className="text-xs text-tt-fg-faint italic">
           <p className="whitespace-pre-wrap">{message.content}</p>
           {message.timestamp && (
             <time className="text-xs opacity-60 mt-1 block">
@@ -36,8 +36,8 @@ const ChatBubble = ({ message }: { message: ChatMessage }) => {
       <div
         className={
           isUser
-            ? "max-w-[80%] rounded-2xl rounded-br-sm px-4 py-2.5 bg-blue-600 text-white"
-            : "max-w-[80%] rounded-2xl rounded-bl-sm px-4 py-2.5 bg-gray-100 text-gray-900"
+            ? "max-w-[80%] rounded-2xl rounded-br-sm px-4 py-2.5 bg-tt-primary text-tt-primary-fg"
+            : "max-w-[80%] rounded-2xl rounded-bl-sm px-4 py-2.5 bg-tt-surface-2 text-tt-fg"
         }
       >
         <p className="whitespace-pre-wrap">{message.content}</p>
@@ -53,18 +53,18 @@ const ChatBubble = ({ message }: { message: ChatMessage }) => {
 
 const LoadingIndicator = () => (
   <div className="flex justify-start">
-    <div className="max-w-[80%] rounded-2xl rounded-bl-sm px-4 py-2.5 bg-gray-100 text-gray-900">
+    <div className="max-w-[80%] rounded-2xl rounded-bl-sm px-4 py-2.5 bg-tt-surface-2 text-tt-fg">
       <div className="flex gap-1.5 px-4 py-2.5">
         <span
-          className="h-2 w-2 rounded-full bg-gray-400 animate-pulse"
+          className="h-2 w-2 rounded-full bg-tt-fg-faint animate-pulse"
           style={{ animationDelay: "0ms" }}
         />
         <span
-          className="h-2 w-2 rounded-full bg-gray-400 animate-pulse"
+          className="h-2 w-2 rounded-full bg-tt-fg-faint animate-pulse"
           style={{ animationDelay: "150ms" }}
         />
         <span
-          className="h-2 w-2 rounded-full bg-gray-400 animate-pulse"
+          className="h-2 w-2 rounded-full bg-tt-fg-faint animate-pulse"
           style={{ animationDelay: "300ms" }}
         />
       </div>

@@ -116,7 +116,7 @@ export const StreamingText: FC<StreamingTextProps> = ({
       {displayedText}
       {showBlinkingCursor && (
         <AnimatedPulse duration={1000}>
-          <Text className="text-blue-500" testID="streaming-cursor">
+          <Text className="text-tt-info" testID="streaming-cursor">
             |
           </Text>
         </AnimatedPulse>

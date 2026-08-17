@@ -8,11 +8,11 @@ import {
   type ViewProps,
 } from "react-native";
 import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@tutti-ui/shared";
+import { cn, useTheme } from "@tutti-ui/shared";
 import { CheckIcon } from "../../primitives";
 
 const selectTriggerVariants = cva(
-  "w-full flex-row items-center justify-between rounded-md border border-gray-300 bg-white",
+  "w-full flex-row items-center justify-between rounded-md border border-tt-border-strong bg-tt-field",
   {
     variants: {
       size: {
@@ -21,7 +21,7 @@ const selectTriggerVariants = cva(
         lg: "h-12 px-4",
       },
       error: {
-        true: "border-red-500",
+        true: "border-tt-danger",
       },
     },
     defaultVariants: {
@@ -31,7 +31,7 @@ const selectTriggerVariants = cva(
   }
 );
 
-const selectValueVariants = cva("text-gray-900", {
+const selectValueVariants = cva("text-tt-fg", {
   variants: {
     size: {
       sm: "text-sm",
@@ -82,6 +82,10 @@ export const Select = forwardRef<View, SelectProps>(
     },
     ref
   ) => {
+    // Values that can't be a className read the resolved theme instead of a
+    // hardcoded hex. ThemeContext defaults to lightColors, so a tree without a
+    // ThemeProvider degrades to light rather than crashing.
+    const { colors } = useTheme();
     const [open, setOpen] = useState(false);
     const [uncontrolledValue, setUncontrolledValue] = useState(defaultValue);
 
@@ -115,13 +119,13 @@ export const Select = forwardRef<View, SelectProps>(
           <Text
             className={cn(
               selectValueVariants({ size }),
-              !selected && "text-gray-400"
+              !selected && "text-tt-fg-faint"
             )}
             numberOfLines={1}
           >
             {selected ? selected.label : placeholder}
           </Text>
-          <Text className="text-gray-500 text-xs ml-2">{"▼"}</Text>
+          <Text className="text-tt-fg-subtle text-xs ml-2">{"▼"}</Text>
         </Pressable>
         <Modal
           visible={open}
@@ -132,13 +136,13 @@ export const Select = forwardRef<View, SelectProps>(
         >
           <View className="flex-1 justify-end">
             <Pressable
-              className="absolute inset-0 bg-black/50"
+              className="absolute inset-0 bg-tt-overlay"
               onPress={() => setOpen(false)}
               accessibilityLabel="Close options"
             />
-            <View className="max-h-96 rounded-t-lg bg-white pb-6 pt-2 shadow-lg">
+            <View className="max-h-96 rounded-t-lg bg-tt-surface pb-6 pt-2 shadow-lg">
               {label || placeholder ? (
-                <Text className="px-4 py-2 text-sm font-medium text-gray-500">
+                <Text className="px-4 py-2 text-sm font-medium text-tt-fg-subtle">
                   {label ?? placeholder}
                 </Text>
               ) : null}
@@ -150,7 +154,7 @@ export const Select = forwardRef<View, SelectProps>(
                       key={option.value}
                       className={cn(
                         "flex-row items-center justify-between px-4 py-3",
-                        isSelected && "bg-blue-50",
+                        isSelected && "bg-tt-primary-subtle",
                         option.disabled && "opacity-50"
                       )}
                       onPress={() => handleSelect(option)}
@@ -163,13 +167,13 @@ export const Select = forwardRef<View, SelectProps>(
                     >
                       <Text
                         className={cn(
-                          "text-base text-gray-900",
-                          isSelected && "font-medium text-blue-600"
+                          "text-base text-tt-fg",
+                          isSelected && "font-medium text-tt-primary"
                         )}
                       >
                         {option.label}
                       </Text>
-                      {isSelected && <CheckIcon size={16} color="#2563eb" />}
+                      {isSelected && <CheckIcon size={16} color={colors.primary} />}
                     </Pressable>
                   );
                 })}

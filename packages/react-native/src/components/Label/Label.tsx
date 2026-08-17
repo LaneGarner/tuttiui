@@ -3,7 +3,7 @@ import { Text, type TextProps } from "react-native";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@tutti-ui/shared";
 
-const labelVariants = cva("text-sm font-medium text-gray-700");
+const labelVariants = cva("text-sm font-medium text-tt-fg-muted");
 
 export interface LabelProps extends TextProps, VariantProps<typeof labelVariants> {
   required?: boolean;
@@ -20,7 +20,7 @@ export const Label = forwardRef<Text, LabelProps>(
       >
         {children}
         {required && (
-          <Text className="text-red-500 ml-1" aria-hidden>
+          <Text className="text-tt-danger ml-1" aria-hidden>
             *
           </Text>
         )}

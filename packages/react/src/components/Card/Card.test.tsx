@@ -19,7 +19,7 @@ describe("Card", () => {
     render(<Card data-testid="card">Content</Card>);
     const card = screen.getByTestId("card");
     expect(card).toHaveClass("rounded-lg");
-    expect(card).toHaveClass("border-gray-200");
+    expect(card).toHaveAttribute("data-variant", "default");
     expect(card).toHaveClass("shadow-sm");
   });
 
@@ -30,7 +30,7 @@ describe("Card", () => {
       </Card>
     );
     const card = screen.getByTestId("card");
-    expect(card).toHaveClass("border-gray-200");
+    expect(card).toHaveAttribute("data-variant", "outline");
     expect(card).not.toHaveClass("shadow-sm");
     expect(card).not.toHaveClass("shadow-md");
   });
@@ -102,7 +102,7 @@ describe("CardDescription", () => {
     render(<CardDescription>Description</CardDescription>);
     const desc = screen.getByText("Description");
     expect(desc).toHaveClass("text-sm");
-    expect(desc).toHaveClass("text-gray-500");
+    expect(desc).toHaveClass("text-tt-fg-subtle");
   });
 });
 

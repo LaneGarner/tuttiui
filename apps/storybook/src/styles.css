@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Paint the canvas from the theme rather than a Storybook background swatch,
+   so the preview frame flips with the components instead of independently. */
+html {
+  background-color: var(--tt-canvas);
+  color: var(--tt-fg);
+}
+
 /*
  * Override react-native-web's atomic CSS resets.
  * RNW sets background-color: transparent, border: 0 solid black, etc.

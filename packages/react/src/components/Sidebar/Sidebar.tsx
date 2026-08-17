@@ -45,7 +45,7 @@ export const Sidebar = forwardRef<HTMLElement, SidebarProps>(
           ref={ref}
           role="complementary"
           className={cn(
-            "flex flex-col border-r border-gray-200 bg-white transition-all duration-200 h-full overflow-hidden",
+            "flex flex-col border-r border-tt-border bg-tt-surface text-tt-fg transition-all duration-200 h-full overflow-hidden",
             className
           )}
           style={{
@@ -71,7 +71,7 @@ export const SidebarHeader = forwardRef<HTMLDivElement, SidebarHeaderProps>(
       <div
         ref={ref}
         className={cn(
-          "flex items-center p-4 border-b border-gray-200",
+          "flex items-center p-4 border-b border-tt-border",
           className
         )}
         {...props}
@@ -105,7 +105,7 @@ export const SidebarFooter = forwardRef<HTMLDivElement, SidebarFooterProps>(
     return (
       <div
         ref={ref}
-        className={cn("p-4 border-t border-gray-200", className)}
+        className={cn("p-4 border-t border-tt-border", className)}
         {...props}
       />
     );
@@ -137,7 +137,7 @@ export const SidebarGroupLabel = forwardRef<
     <div
       ref={ref}
       className={cn(
-        "px-3 py-1.5 text-xs font-semibold text-gray-400 uppercase tracking-wider",
+        "px-3 py-1.5 text-xs font-semibold text-tt-fg-faint uppercase tracking-wider",
         collapsed && "overflow-hidden whitespace-nowrap",
         className
       )}
@@ -162,11 +162,12 @@ export const SidebarItem = forwardRef<HTMLButtonElement, SidebarItemProps>(
       <button
         ref={ref}
         type="button"
+        data-active={active ? "true" : "false"}
         className={cn(
-          "flex items-center gap-3 w-full rounded-md px-3 py-2 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500",
+          "flex items-center gap-3 w-full rounded-md px-3 py-2 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tt-focus",
           active
-            ? "bg-gray-100 text-gray-900 font-medium"
-            : "text-gray-600 hover:text-gray-900 hover:bg-gray-50",
+            ? "bg-tt-surface-active text-tt-fg font-medium"
+            : "text-tt-fg-muted hover:text-tt-fg hover:bg-tt-surface-hover",
           collapsed && "overflow-hidden whitespace-nowrap",
           className
         )}

@@ -1,7 +1,7 @@
 import { forwardRef, useState, useCallback, useRef } from "react";
 import { Pressable, Text, View, type PressableProps } from "react-native";
 import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@tutti-ui/shared";
+import { cn, useTheme } from "@tutti-ui/shared";
 import { AnimatedSpinner } from "../../primitives";
 
 type ActionState = "idle" | "pending" | "confirmed" | "failed";
@@ -11,9 +11,9 @@ const optimisticActionContainerVariants = cva(
   {
     variants: {
       variant: {
-        primary: "bg-blue-600",
-        secondary: "bg-gray-100",
-        danger: "bg-red-600",
+        primary: "bg-tt-primary",
+        secondary: "bg-tt-surface-2",
+        danger: "bg-tt-danger-strong",
       },
       size: {
         sm: "h-8 px-3",
@@ -31,9 +31,9 @@ const optimisticActionContainerVariants = cva(
 const optimisticActionTextVariants = cva("font-medium", {
   variants: {
     variant: {
-      primary: "text-white",
-      secondary: "text-gray-900",
-      danger: "text-white",
+      primary: "text-tt-primary-fg",
+      secondary: "text-tt-fg",
+      danger: "text-tt-danger-fg",
     },
     size: {
       sm: "text-sm",
@@ -46,12 +46,6 @@ const optimisticActionTextVariants = cva("font-medium", {
     size: "md",
   },
 });
-
-const spinnerColors: Record<string, string> = {
-  primary: "#ffffff",
-  secondary: "#111827",
-  danger: "#ffffff",
-};
 
 export interface OptimisticActionProps
   extends Omit<PressableProps, "onPress" | "children">,
@@ -81,9 +75,18 @@ export const OptimisticAction = forwardRef<View, OptimisticActionProps>(
     },
     ref
   ) => {
+    // Values that can't be a className read the resolved theme instead of a
+    // hardcoded hex. ThemeContext defaults to lightColors, so a tree without a
+    // ThemeProvider degrades to light rather than crashing.
+    const { colors } = useTheme();
     const [state, setState] = useState<ActionState>("idle");
     const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
     const variantKey = variant ?? "primary";
+    const spinnerColors: Record<string, string> = {
+      primary: colors.primaryFg,
+      secondary: colors.fg,
+      danger: colors.dangerFg,
+    };
 
     const handlePress = useCallback(async () => {
       if (state !== "idle") return;
@@ -105,15 +108,15 @@ export const OptimisticAction = forwardRef<View, OptimisticActionProps>(
     const stateContainerOverrides: Record<ActionState, string> = {
       idle: "",
       pending: "",
-      confirmed: "bg-green-600",
-      failed: "bg-red-600",
+      confirmed: "bg-tt-success-strong",
+      failed: "bg-tt-danger-strong",
     };
 
     const stateTextColor: Record<ActionState, string> = {
       idle: "",
       pending: "",
-      confirmed: "text-white",
-      failed: "text-white",
+      confirmed: "text-tt-success-fg",
+      failed: "text-tt-danger-fg",
     };
 
     const isDisabled = disabled || state === "pending";

@@ -66,7 +66,7 @@ export const DialogOverlay = forwardRef<HTMLDivElement, DialogOverlayProps>(
     return (
       <div
         ref={ref}
-        className={cn("fixed inset-0 z-50 bg-black/50", className)}
+        className={cn("fixed inset-0 z-50 bg-tt-overlay", className)}
         onClick={handleClick}
         aria-hidden="true"
         {...props}
@@ -115,7 +115,7 @@ export const DialogContent = forwardRef<HTMLDivElement, DialogContentProps>(
           aria-describedby={descriptionId}
           tabIndex={-1}
           className={cn(
-            "fixed left-1/2 top-1/2 z-50 w-full max-w-lg -translate-x-1/2 -translate-y-1/2 rounded-lg border border-gray-200 bg-white p-6 shadow-lg",
+            "fixed left-1/2 top-1/2 z-50 w-full max-w-lg -translate-x-1/2 -translate-y-1/2 rounded-lg border border-tt-border bg-tt-surface text-tt-fg p-6 shadow-lg",
             className
           )}
           onKeyDown={handleKeyDown}
@@ -185,7 +185,7 @@ export const DialogDescription = forwardRef<
     <p
       ref={ref}
       id={descriptionId}
-      className={cn("text-sm text-gray-500", className)}
+      className={cn("text-sm text-tt-fg-subtle", className)}
       {...props}
     />
   );
@@ -232,7 +232,7 @@ export const DialogClose = forwardRef<HTMLButtonElement, DialogCloseProps>(
         ref={ref}
         type="button"
         className={cn(
-          "absolute right-4 top-4 rounded-sm opacity-70 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-blue-500",
+          "absolute right-4 top-4 rounded-sm opacity-70 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-tt-focus",
           className
         )}
         onClick={handleClick}

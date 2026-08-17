@@ -7,11 +7,11 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: "bg-blue-600 text-white hover:bg-blue-700 focus-visible:ring-blue-500",
-        secondary: "bg-gray-100 text-gray-900 hover:bg-gray-200 focus-visible:ring-gray-500",
-        outline: "border border-gray-300 bg-transparent text-gray-700 hover:bg-gray-50 focus-visible:ring-gray-500",
-        ghost: "bg-transparent text-gray-700 hover:bg-gray-100 focus-visible:ring-gray-500",
-        danger: "bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-500",
+        primary: "bg-tt-primary text-tt-primary-fg hover:bg-tt-primary-hover focus-visible:ring-tt-focus",
+        secondary: "bg-tt-surface-2 text-tt-fg hover:bg-tt-surface-3 focus-visible:ring-tt-focus",
+        outline: "border border-tt-border-strong bg-transparent text-tt-fg-muted hover:bg-tt-surface-hover focus-visible:ring-tt-focus",
+        ghost: "bg-transparent text-tt-fg-muted hover:bg-tt-surface-hover focus-visible:ring-tt-focus",
+        danger: "bg-tt-danger-strong text-tt-danger-fg hover:bg-tt-danger-strong-hover focus-visible:ring-tt-focus",
       },
       size: {
         sm: "h-8 px-3 text-sm gap-1.5",
@@ -37,6 +37,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <button
         ref={ref}
+        data-variant={variant ?? "primary"}
+        data-size={size ?? "md"}
         className={cn(buttonVariants({ variant, size }), className)}
         disabled={disabled || loading}
         aria-busy={loading || undefined}

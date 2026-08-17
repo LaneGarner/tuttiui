@@ -9,9 +9,9 @@ const optimisticActionVariants = cva(
   {
     variants: {
       variant: {
-        primary: "bg-blue-600 text-white hover:bg-blue-700",
-        secondary: "bg-gray-100 text-gray-900 hover:bg-gray-200",
-        danger: "bg-red-600 text-white hover:bg-red-700",
+        primary: "bg-tt-primary text-tt-primary-fg hover:bg-tt-primary-hover",
+        secondary: "bg-tt-surface-2 text-tt-fg hover:bg-tt-surface-3",
+        danger: "bg-tt-danger-strong text-tt-danger-fg hover:bg-tt-danger-strong-hover",
       },
       size: {
         sm: "h-8 px-3 text-sm",
@@ -76,13 +76,15 @@ export const OptimisticAction = forwardRef<HTMLButtonElement, OptimisticActionPr
     const stateClasses = {
       idle: "",
       pending: "",
-      confirmed: "bg-green-600 hover:bg-green-600 text-white",
-      failed: "bg-red-600 hover:bg-red-600 text-white",
+      confirmed: "bg-tt-success-strong hover:bg-tt-success-strong text-tt-success-fg",
+      failed: "bg-tt-danger-strong hover:bg-tt-danger-strong text-tt-danger-fg",
     };
 
     return (
       <button
         ref={ref}
+        data-variant={variant ?? "primary"}
+        data-state={state}
         className={cn(
           optimisticActionVariants({ variant, size }),
           stateClasses[state],

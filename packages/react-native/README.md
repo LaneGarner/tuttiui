@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/LaneGarner/tutti-ui/main/assets/tuttiui-lockup.svg" alt="tutti-ui" width="280" />
+</p>
+
 # @tutti-ui/react-native
 
 React Native components for the tutti-ui design system — 27 component families

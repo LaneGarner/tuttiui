@@ -14,7 +14,7 @@ import {
   type NativeSyntheticEvent,
   type TextInputContentSizeChangeEventData,
 } from "react-native";
-import { cn } from "@tutti-ui/shared";
+import { cn, useTheme } from "@tutti-ui/shared";
 import { AnimatedSpinner } from "../../primitives";
 
 export interface AIInputProps extends Omit<ViewProps, "children"> {
@@ -46,6 +46,10 @@ export const AIInput = forwardRef<TextInput, AIInputProps>(
     },
     ref
   ) => {
+    // Values that can't be a className read the resolved theme instead of a
+    // hardcoded hex. ThemeContext defaults to lightColors, so a tree without a
+    // ThemeProvider degrades to light rather than crashing.
+    const { colors } = useTheme();
     const [internalValue, setInternalValue] = useState("");
     const [inputHeight, setInputHeight] = useState(minHeight);
     const internalRef = useRef<TextInput | null>(null);
@@ -99,7 +103,7 @@ export const AIInput = forwardRef<TextInput, AIInputProps>(
     return (
       <View
         className={cn(
-          "flex-row items-end rounded-lg border border-gray-300 bg-white",
+          "flex-row items-end rounded-lg border border-tt-border-strong bg-tt-field",
           className
         )}
         {...props}
@@ -109,14 +113,14 @@ export const AIInput = forwardRef<TextInput, AIInputProps>(
           value={value}
           onChangeText={handleChangeText}
           placeholder={placeholder}
-          placeholderTextColor="#9ca3af"
+          placeholderTextColor={colors.fgFaint}
           editable={!isDisabled}
           multiline
           onContentSizeChange={handleContentSizeChange}
           onSubmitEditing={handleSubmit}
           blurOnSubmit={false}
           style={{ height: inputHeight }}
-          className="flex-1 px-4 py-3 text-sm text-gray-900"
+          className="flex-1 px-4 py-3 text-sm text-tt-fg"
           accessibilityLabel={placeholder}
           {...textInputProps}
         />
@@ -124,7 +128,7 @@ export const AIInput = forwardRef<TextInput, AIInputProps>(
           onPress={handleSubmit}
           disabled={isEmpty || isDisabled}
           className={cn(
-            "shrink-0 p-2 m-1 rounded-md bg-blue-600",
+            "shrink-0 p-2 m-1 rounded-md bg-tt-primary",
             (isEmpty || isDisabled) && "opacity-50"
           )}
           accessibilityRole="button"
@@ -132,9 +136,9 @@ export const AIInput = forwardRef<TextInput, AIInputProps>(
           accessibilityState={{ disabled: isEmpty || isDisabled }}
         >
           {loading ? (
-            <AnimatedSpinner size="sm" color="#ffffff" />
+            <AnimatedSpinner size="sm" color={colors.primaryFg} />
           ) : (
-            <Text className="text-white text-sm font-bold" testID="ai-input-send-icon">
+            <Text className="text-tt-primary-fg text-sm font-bold" testID="ai-input-send-icon">
               {"\u2191"}
             </Text>
           )}

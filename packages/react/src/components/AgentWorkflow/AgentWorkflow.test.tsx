@@ -45,15 +45,14 @@ describe("AgentWorkflow", () => {
     const steps = makeSteps([{ id: "1", label: "Pending", state: "pending" }]);
     render(<AgentWorkflow steps={steps} />);
     const indicator = screen.getByTestId("step-indicator-1");
-    expect(indicator).toHaveClass("bg-gray-200");
-    expect(indicator).toHaveClass("text-gray-500");
+    expect(indicator).toHaveAttribute("data-state", "pending");
   });
 
   it("applies running state with animate-pulse", () => {
     const steps = makeSteps([{ id: "1", label: "Running", state: "running" }]);
     render(<AgentWorkflow steps={steps} />);
     const indicator = screen.getByTestId("step-indicator-1");
-    expect(indicator).toHaveClass("bg-blue-500");
+    expect(indicator).toHaveAttribute("data-state", "running");
     expect(indicator).toHaveClass("animate-pulse");
   });
 
@@ -81,7 +80,7 @@ describe("AgentWorkflow", () => {
     ]);
     render(<AgentWorkflow steps={steps} />);
     const indicator = screen.getByTestId("step-indicator-1");
-    expect(indicator).toHaveClass("bg-amber-500");
+    expect(indicator).toHaveAttribute("data-state", "needs-approval");
     expect(indicator).toHaveTextContent("!");
   });
 

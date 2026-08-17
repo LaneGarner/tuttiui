@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import { Pressable, Text, View, type PressableProps } from "react-native";
 import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@tutti-ui/shared";
+import { cn, useTheme } from "@tutti-ui/shared";
 import { AnimatedSpinner } from "../../primitives";
 
 const buttonContainerVariants = cva(
@@ -9,11 +9,11 @@ const buttonContainerVariants = cva(
   {
     variants: {
       variant: {
-        primary: "bg-blue-600",
-        secondary: "bg-gray-100",
-        outline: "border border-gray-300 bg-transparent",
+        primary: "bg-tt-primary",
+        secondary: "bg-tt-surface-2",
+        outline: "border border-tt-border-strong bg-transparent",
         ghost: "bg-transparent",
-        danger: "bg-red-600",
+        danger: "bg-tt-danger-strong",
       },
       size: {
         sm: "h-8 px-3 gap-1.5",
@@ -31,11 +31,11 @@ const buttonContainerVariants = cva(
 const buttonTextVariants = cva("font-medium", {
   variants: {
     variant: {
-      primary: "text-white",
-      secondary: "text-gray-900",
-      outline: "text-gray-700",
-      ghost: "text-gray-700",
-      danger: "text-white",
+      primary: "text-tt-primary-fg",
+      secondary: "text-tt-fg",
+      outline: "text-tt-fg-muted",
+      ghost: "text-tt-fg-muted",
+      danger: "text-tt-danger-fg",
     },
     size: {
       sm: "text-sm",
@@ -49,14 +49,6 @@ const buttonTextVariants = cva("font-medium", {
   },
 });
 
-const spinnerColors: Record<string, string> = {
-  primary: "#ffffff",
-  secondary: "#111827",
-  outline: "#374151",
-  ghost: "#374151",
-  danger: "#ffffff",
-};
-
 export interface ButtonProps
   extends Omit<PressableProps, "children">,
     VariantProps<typeof buttonContainerVariants> {
@@ -68,6 +60,17 @@ export const Button = forwardRef<View, ButtonProps>(
   ({ className, variant = "primary", size, loading, disabled, children, ...props }, ref) => {
     const isDisabled = disabled || loading;
     const variantKey = variant ?? "primary";
+    // Values that can't be a className read the resolved theme instead of a
+// hardcoded hex. ThemeContext defaults to lightColors, so a tree without a
+// ThemeProvider degrades to light rather than crashing.
+    const { colors } = useTheme();
+    const spinnerColors: Record<string, string> = {
+      primary: colors.primaryFg,
+      secondary: colors.fg,
+      outline: colors.fgMuted,
+      ghost: colors.fgMuted,
+      danger: colors.dangerFg,
+    };
 
     return (
       <Pressable
