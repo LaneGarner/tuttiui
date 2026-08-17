@@ -128,6 +128,16 @@ export {
   type TabsContentProps,
 } from "./components/Tabs";
 export {
+  Collapsible,
+  CollapsibleTrigger,
+  CollapsibleContent,
+  collapsibleContentVariants,
+  useCollapsibleContext,
+  type CollapsibleProps,
+  type CollapsibleTriggerProps,
+  type CollapsibleContentProps,
+} from "./components/Collapsible";
+export {
   Breadcrumbs,
   BreadcrumbItem,
   BreadcrumbLink,
