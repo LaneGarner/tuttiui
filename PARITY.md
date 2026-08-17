@@ -2,9 +2,10 @@
 
 Status of each `@tutti-ui/react` component family in `@tutti-ui/react-native`.
 
-**Summary: 27 of 33 component families ported.** Stepper's native port is
+**Summary: 28 of 34 component families ported.** Stepper's native port is
 planned; the remaining 5 are web-idiom components that either map to a
-different mobile pattern or are intentionally web-only (see the last table).
+different mobile pattern or are intentionally web-only (see the last table —
+NavMenu's mobile equivalent now ships as `TabBar`).
 
 Legend: ✅ done · 🔜 deferred · 🌐 web-only by design
 
@@ -44,6 +45,7 @@ Legend: ✅ done · 🔜 deferred · 🌐 web-only by design
 | Stack / VStack / HStack | ✅ | Same spacing/align/justify variants |
 | Divider | ✅ | Horizontal/vertical `View` |
 | Tabs | ✅ | Same compound API; touch-first (no roving tabindex — not applicable) |
+| TabBar | ✅ | Fixed bottom navigation. Web: `nav` landmark, `aria-current="page"`, `safeArea` inset padding. RN: `Pressable` items with `accessibilityRole="tab"` + `accessibilityState.selected`, `bottomInset` prop; plugs into react-navigation's `tabBar` prop |
 | Collapsible | 🔜 | Planned. Web version is CSS-only (`grid-template-rows` 0fr/1fr); RN port will animate height via `LayoutAnimation` or reanimated |
 
 ## AI-Native
@@ -67,7 +69,7 @@ worse UX than the established native patterns, so they are mapped instead:
 |---------------|--------------------------|
 | CommandPalette | 🌐 Web-only by design. Cmd+K is a keyboard idiom; the mobile equivalent is a dedicated search screen (typically owned by the app's navigation layer, e.g. react-navigation), not a design-system overlay |
 | Breadcrumbs | 🌐 Web-only by design. Mobile navigation communicates hierarchy through the navigation stack (header + back button), not breadcrumb trails |
-| NavMenu | 🔜 Deferred. The mobile pattern is a bottom tab bar; a styled `TabBar` that plugs into react-navigation's `tabBar` prop is planned |
+| NavMenu | ✅ Superseded by `TabBar`. The mobile pattern is a bottom tab bar; the `TabBar` family (shipped in both packages) covers it and plugs into react-navigation's `tabBar` prop |
 | Sidebar | 🌐 Web-only by design. The mobile equivalent is a navigation drawer, which react-navigation's drawer navigator already owns (gesture handling, focus, state). A tutti-ui theme for it may ship later, but a parallel drawer implementation would fight the ecosystem |
 | StreamingTable | 🔜 Deferred. Wide data tables don't fit phone viewports; the planned equivalent is a `StreamingList` (FlatList with skeleton rows and pending/streaming/complete row states) sharing the web version's data model |
 
