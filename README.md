@@ -10,14 +10,14 @@ A comprehensive component library for React and React Native with shared design 
 
 ## Features
 
-- **32 component families** with 60+ exports on web
-- **React Native support: 27 of 32 component families** via NativeWind (see [PARITY.md](./PARITY.md))
+- **38 component families** with 60+ exports on web
+- **React Native support: 29 of 38 component families** via NativeWind (see [PARITY.md](./PARITY.md))
 - **One set of design tokens** (colors, spacing, typography, radii, shadows) consumed by both platforms
 - **Accessible by default** -- ARIA roles and keyboard navigation on web; `accessibilityRole`/`accessibilityState`/`accessibilityLabel` on native
 - **Tailwind CSS v3** integration via preset (web) and NativeWind classNames (native)
 - **Dark mode and full retheming** through semantic CSS-variable tokens — no `dark:` classes anywhere in component source, and a consumer can point the whole system at their own palette
 - **TypeScript strict mode** throughout
-- **600+ tests** with Jest + Testing Library (332 web, 271 native)
+- **700+ tests** with Jest + Testing Library (424 web, 289 native)
 - **Storybook** for interactive documentation (web + native stories via react-native-web)
 
 ## Installation
@@ -140,12 +140,14 @@ Add the tutti-ui preset to your NativeWind `tailwind.config.js` `content` and
 
 ### React Native parity
 
-27 of 32 web component families are available in `@tutti-ui/react-native`,
-including all form controls, feedback, layout, and AI-native components.
-`CommandPalette`, `Breadcrumbs`, and `Sidebar` are web-only by design (their
-mobile equivalents belong to the navigation layer); `NavMenu` (as a native
-`TabBar`) and `StreamingTable` (as a `StreamingList`) are deferred. Platform
-notes for every component live in [PARITY.md](./PARITY.md).
+29 of 38 web component families are available in `@tutti-ui/react-native`,
+including all original form controls, feedback, layout, and AI-native
+components plus the new `Sheet` and `TabBar`. `CommandPalette`, `Breadcrumbs`,
+and `Sidebar` are web-only by design (their mobile equivalents belong to the
+navigation layer); `NavMenu` is superseded by `TabBar`; native ports of
+`Stepper`, `Collapsible`, `Badge`, `SegmentedControl`, and `StreamingTable`
+(as a `StreamingList`) are deferred. Platform notes for every component live
+in [PARITY.md](./PARITY.md).
 
 ## Components
 
@@ -162,6 +164,8 @@ notes for every component live in [PARITY.md](./PARITY.md).
 | `Switch` | Toggle switch with track + thumb, 3 sizes |
 | `Label` | Form label with optional required indicator |
 | `FormField` / `FormError` / `FormHint` | Form context utilities with `useFormField` hook |
+| `Stepper` | Numeric stepper with `role="spinbutton"`, long-press repeat |
+| `SegmentedControl` / `Segment` | Segmented single-select with radiogroup semantics and arrow-key navigation |
 
 ### Display & Feedback
 
@@ -176,6 +180,8 @@ notes for every component live in [PARITY.md](./PARITY.md).
 | `Skeleton` | Pulsing loading placeholder |
 | `Progress` | Progress bar with ARIA, 3 sizes, 4 colors |
 | `Spinner` | Accessible loading spinner |
+| `Badge` | Status badge with semantic subtle variants |
+| `Sheet` | Bottom-anchored modal with snap points and drag-to-dismiss |
 
 ### Layout & Navigation
 
@@ -188,6 +194,8 @@ notes for every component live in [PARITY.md](./PARITY.md).
 | `NavMenu` | Vertical/horizontal navigation menu |
 | `Sidebar` | Collapsible sidebar with groups and items |
 | `CommandPalette` | Searchable command list with Cmd+K, arrow key navigation |
+| `TabBar` | Fixed bottom navigation with safe-area support |
+| `Collapsible` | CSS-only expand/collapse disclosure |
 
 ### AI-Native
 
@@ -210,6 +218,7 @@ notes for every component live in [PARITY.md](./PARITY.md).
 | `@tutti-ui/react` | React (web) components + Tailwind preset |
 | `@tutti-ui/react-native` | React Native components (NativeWind) |
 | `@tutti-ui/storybook` | Storybook app (internal) |
+| `tutti-ui` | npm name-claim stub pointing at `@tutti-ui/react` (internal, published manually) |
 
 ### Dependency Graph
 
@@ -240,8 +249,12 @@ pnpm clean              # Remove all build artifacts
 
 ### Deploying Storybook
 
-The Storybook app builds statically and ships with a Vercel config
-(`apps/storybook/vercel.json`). To deploy:
+Storybook deploys automatically to
+[GitHub Pages](https://lanegarner.github.io/tutti-ui/) on every push to `main`
+(`.github/workflows/deploy-storybook.yml`).
+
+The app also builds statically for Vercel via `apps/storybook/vercel.json` as
+an alternative:
 
 ```bash
 vercel --cwd apps/storybook

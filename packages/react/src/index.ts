@@ -1,4 +1,13 @@
 export { Button, buttonVariants, type ButtonProps } from "./components/Button";
+export { Badge, badgeVariants, type BadgeProps } from "./components/Badge";
+export {
+  SegmentedControl,
+  Segment,
+  segmentedControlVariants,
+  segmentVariants,
+  type SegmentedControlProps,
+  type SegmentProps,
+} from "./components/SegmentedControl";
 export { Input, inputVariants, type InputProps } from "./components/Input";
 export { Label, labelVariants, type LabelProps } from "./components/Label";
 export { Textarea, textareaVariants, type TextareaProps } from "./components/Textarea";
@@ -25,6 +34,12 @@ export {
   type RadioItemProps,
 } from "./components/Radio";
 export { Switch, switchVariants, type SwitchProps } from "./components/Switch";
+export {
+  Stepper,
+  stepperVariants,
+  stepperButtonVariants,
+  type StepperProps,
+} from "./components/Stepper";
 export {
   Card,
   cardVariants,
@@ -96,6 +111,24 @@ export {
   type DialogCloseProps,
 } from "./components/Dialog";
 export {
+  Sheet,
+  SheetOverlay,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetDescription,
+  SheetFooter,
+  SheetClose,
+  type SheetProps,
+  type SheetOverlayProps,
+  type SheetContentProps,
+  type SheetHeaderProps,
+  type SheetTitleProps,
+  type SheetDescriptionProps,
+  type SheetFooterProps,
+  type SheetCloseProps,
+} from "./components/Sheet";
+export {
   Toast,
   toastVariants,
   type ToastProps,
@@ -127,6 +160,16 @@ export {
   type TabsTriggerProps,
   type TabsContentProps,
 } from "./components/Tabs";
+export {
+  Collapsible,
+  CollapsibleTrigger,
+  CollapsibleContent,
+  collapsibleContentVariants,
+  useCollapsibleContext,
+  type CollapsibleProps,
+  type CollapsibleTriggerProps,
+  type CollapsibleContentProps,
+} from "./components/Collapsible";
 export {
   Breadcrumbs,
   BreadcrumbItem,
@@ -164,6 +207,13 @@ export {
   type SidebarGroupLabelProps,
   type SidebarItemProps,
 } from "./components/Sidebar";
+export {
+  TabBar,
+  TabBarItem,
+  tabBarItemVariants,
+  type TabBarProps,
+  type TabBarItemProps,
+} from "./components/TabBar";
 export {
   CommandPalette,
   type CommandPaletteProps,

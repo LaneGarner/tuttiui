@@ -83,6 +83,9 @@ export type {
   TabsContentProps,
 } from "./components/Tabs";
 
+export { TabBar, TabBarItem, tabBarItemTextVariants } from "./components/TabBar";
+export type { TabBarProps, TabBarItemProps } from "./components/TabBar";
+
 export { RadioGroup, RadioItem, radioOuterVariants, radioInnerVariants } from "./components/Radio";
 export type { RadioGroupProps, RadioItemProps } from "./components/Radio";
 
@@ -109,6 +112,27 @@ export type {
   DialogFooterProps,
   DialogCloseProps,
 } from "./components/Dialog";
+
+export {
+  Sheet,
+  SheetOverlay,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetDescription,
+  SheetFooter,
+  SheetClose,
+} from "./components/Sheet";
+export type {
+  SheetProps,
+  SheetOverlayProps,
+  SheetContentProps,
+  SheetHeaderProps,
+  SheetTitleProps,
+  SheetDescriptionProps,
+  SheetFooterProps,
+  SheetCloseProps,
+} from "./components/Sheet";
 
 // AI-Native
 export { AIChat } from "./components/AIChat";

@@ -49,6 +49,92 @@ describe("semantic color tokens", () => {
   });
 });
 
+// WCAG 2.x relative luminance + contrast ratio, per
+// https://www.w3.org/TR/WCAG22/#dfn-contrast-ratio
+function channel(hex: string, offset: number): number {
+  const c = parseInt(hex.slice(offset, offset + 2), 16) / 255;
+  return c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
+}
+
+function luminance(color: string): number {
+  const hex = color.replace("#", "");
+  return (
+    0.2126 * channel(hex, 0) +
+    0.7152 * channel(hex, 2) +
+    0.0722 * channel(hex, 4)
+  );
+}
+
+function contrastRatio(a: string, b: string): number {
+  const [hi, lo] = [luminance(a), luminance(b)].sort((x, y) => y - x);
+  return (hi + 0.05) / (lo + 0.05);
+}
+
+describe("status tint contrast", () => {
+  const families = ["primary", "success", "warning", "danger", "info"] as const;
+
+  it.each([
+    ["light", lightColors],
+    ["dark", darkColors],
+  ] as const)(
+    "%s OnSubtle text meets 4.5:1 on its Subtle fill for every status family",
+    (_theme, colors) => {
+      // Badge and the status tints render OnSubtle text on a Subtle fill.
+      // Light pairings like blue-100 text survive on light fills but fail
+      // hard on near-black surfaces, so both sets are held to AA here.
+      const failures: string[] = [];
+      for (const family of families) {
+        const subtle = colors[`${family}Subtle`];
+        const onSubtle = colors[`${family}OnSubtle`];
+        const ratio = contrastRatio(onSubtle, subtle);
+        if (ratio < 4.5) {
+          failures.push(
+            `${family}: ${onSubtle} on ${subtle} = ${ratio.toFixed(2)}:1`
+          );
+        }
+      }
+      expect(failures).toEqual([]);
+    }
+  );
+});
+
+describe("action fill contrast", () => {
+  // Button `primary` renders primaryFg on primary (and primaryHover), Button
+  // `danger` renders dangerFg on dangerStrong (and dangerStrongHover), and
+  // OptimisticAction `confirmed` renders successFg on successStrong. These are
+  // fills a user must read to act, so every pairing is held to 4.5:1 AA in
+  // both themes — the dark-mode regression here (white on blue-400, 2.54:1)
+  // is exactly the class of bug DK-02 reported.
+  const pairs = [
+    ["primaryFg", "primary"],
+    ["primaryFg", "primaryHover"],
+    ["dangerFg", "dangerStrong"],
+    ["dangerFg", "dangerStrongHover"],
+    ["successFg", "successStrong"],
+  ] as const;
+
+  it.each([
+    ["light", lightColors],
+    ["dark", darkColors],
+  ] as const)(
+    "%s action foregrounds meet 4.5:1 on their fills, including hover",
+    (_theme, colors) => {
+      const failures: string[] = [];
+      for (const [fgKey, bgKey] of pairs) {
+        const fg = colors[fgKey];
+        const bg = colors[bgKey];
+        const ratio = contrastRatio(fg, bg);
+        if (ratio < 4.5) {
+          failures.push(
+            `${fgKey} on ${bgKey}: ${fg} on ${bg} = ${ratio.toFixed(2)}:1`
+          );
+        }
+      }
+      expect(failures).toEqual([]);
+    }
+  );
+});
+
 describe("buildThemeCss", () => {
   it("kebab-cases keys, including trailing digits", () => {
     expect(toKebab("fgMuted")).toBe("fg-muted");
