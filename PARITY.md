@@ -2,7 +2,7 @@
 
 Status of each `@tutti-ui/react` component family in `@tutti-ui/react-native`.
 
-**Summary: 27 of 33 component families ported.** Stepper's native port is
+**Summary: 28 of 34 component families ported.** Stepper's native port is
 planned; the remaining 5 are web-idiom components that either map to a
 different mobile pattern or are intentionally web-only (see the last table).
 
@@ -32,6 +32,7 @@ Legend: ✅ done · 🔜 deferred · 🌐 web-only by design
 | Tooltip | ✅ | **Long-press** to show (no hover on touch); auto-hides after `duration` ms; `top`/`bottom` sides only |
 | Alert | ✅ | Same variants, dismiss button |
 | Dialog | ✅ | RN `Modal` (`transparent` + fade) instead of portal; hardware back closes via `onRequestClose` |
+| Sheet (+ Overlay/Content/…) | ✅ | RN `Modal` (`transparent` + slide) instead of portal; hardware back closes via `onRequestClose`. `snapPoints` degrades to a single height — the sheet rests at the **first** point only; multi-point drag-snapping and `dismissOnDrag` are web-only |
 | Toast | ✅ | `ToastProvider` + `useToast`, auto-dismiss |
 | Skeleton | ✅ | Pulse animation via react-native-reanimated |
 | Progress | ✅ | `accessibilityRole="progressbar"` + `accessibilityValue` |
