@@ -2,7 +2,7 @@
 
 Status of each `@tutti-ui/react` component family in `@tutti-ui/react-native`.
 
-**Summary: 28 of 37 component families ported.** Native ports for the other
+**Summary: 29 of 38 component families ported.** Native ports for the other
 0.3.0 additions (Stepper, Collapsible, Badge, SegmentedControl) are planned;
 the remaining are web-idiom components that either map to a different mobile
 pattern or are intentionally web-only (see the last table — NavMenu's mobile
@@ -36,6 +36,7 @@ Legend: ✅ done · 🔜 deferred · 🌐 web-only by design
 | Alert | ✅ | Same variants, dismiss button |
 | Badge | 🔜 | Planned. Same variants/sizes; `View` + `Text` with the semantic subtle tokens |
 | Dialog | ✅ | RN `Modal` (`transparent` + fade) instead of portal; hardware back closes via `onRequestClose` |
+| Sheet (+ Overlay/Content/…) | ✅ | RN `Modal` (`transparent` + slide) instead of portal; hardware back closes via `onRequestClose`. `snapPoints` degrades to a single height — the sheet rests at the **first** point only; multi-point drag-snapping and `dismissOnDrag` are web-only |
 | Toast | ✅ | `ToastProvider` + `useToast`, auto-dismiss |
 | Skeleton | ✅ | Pulse animation via react-native-reanimated |
 | Progress | ✅ | `accessibilityRole="progressbar"` + `accessibilityValue` |

@@ -113,6 +113,27 @@ export type {
   DialogCloseProps,
 } from "./components/Dialog";
 
+export {
+  Sheet,
+  SheetOverlay,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetDescription,
+  SheetFooter,
+  SheetClose,
+} from "./components/Sheet";
+export type {
+  SheetProps,
+  SheetOverlayProps,
+  SheetContentProps,
+  SheetHeaderProps,
+  SheetTitleProps,
+  SheetDescriptionProps,
+  SheetFooterProps,
+  SheetCloseProps,
+} from "./components/Sheet";
+
 // AI-Native
 export { AIChat } from "./components/AIChat";
 export type { AIChatProps, ChatMessage } from "./components/AIChat";
