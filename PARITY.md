@@ -43,6 +43,7 @@ Legend: ✅ done · 🔜 deferred · 🌐 web-only by design
 | Stack / VStack / HStack | ✅ | Same spacing/align/justify variants |
 | Divider | ✅ | Horizontal/vertical `View` |
 | Tabs | ✅ | Same compound API; touch-first (no roving tabindex — not applicable) |
+| Collapsible | 🔜 | Planned. Web version is CSS-only (`grid-template-rows` 0fr/1fr); RN port will animate height via `LayoutAnimation` or reanimated |
 
 ## AI-Native
 
