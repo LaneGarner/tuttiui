@@ -25,8 +25,10 @@ A comprehensive component library for React and React Native with shared design 
 ### React (web)
 
 ```bash
-npm install @tutti-ui/react @tutti-ui/tokens @tutti-ui/shared
+npm install tutti-ui
 ```
+
+The framework-explicit `npm install @tutti-ui/react` remains fully supported.
 
 ### React Native
 
@@ -96,7 +98,7 @@ reach a specific state from your own CSS.
 ### React (web)
 
 ```tsx
-import { Button, Input, Label, Card, CardContent } from "@tutti-ui/react";
+import { Button, Input, Label, Card, CardContent } from "tutti-ui";
 
 function App() {
   return (
@@ -213,12 +215,12 @@ in [PARITY.md](./PARITY.md).
 
 | Package | Description |
 |---------|-------------|
+| `tutti-ui` | Single-install React components and design tokens (recommended for web) |
 | `@tutti-ui/tokens` | Design tokens (colors, spacing, typography, radii, shadows + `nativeShadows`) |
 | `@tutti-ui/shared` | `cn()` utility, `ThemeProvider`, `useTheme` hook (web at `.`, RN at `./native`) |
 | `@tutti-ui/react` | React (web) components + Tailwind preset |
 | `@tutti-ui/react-native` | React Native components (NativeWind) |
 | `@tutti-ui/storybook` | Storybook app (internal) |
-| `tutti-ui` | npm name-claim stub pointing at `@tutti-ui/react` (internal, published manually) |
 
 ### Dependency Graph
 

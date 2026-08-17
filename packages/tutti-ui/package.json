@@ -1,0 +1,79 @@
+{
+  "name": "tutti-ui",
+  "version": "0.2.0",
+  "description": "React components and design tokens from the tutti-ui design system",
+  "license": "MIT",
+  "author": "Lane Garner",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lanegarner/tutti-ui.git",
+    "directory": "packages/tutti-ui"
+  },
+  "homepage": "https://github.com/lanegarner/tutti-ui#readme",
+  "bugs": "https://github.com/lanegarner/tutti-ui/issues",
+  "keywords": [
+    "react",
+    "components",
+    "design-system",
+    "design-tokens",
+    "tailwindcss",
+    "ui"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./react": {
+      "types": "./dist/react.d.ts",
+      "import": "./dist/react.mjs",
+      "require": "./dist/react.js"
+    },
+    "./tokens": {
+      "types": "./dist/tokens.d.ts",
+      "import": "./dist/tokens.mjs",
+      "require": "./dist/tokens.js"
+    },
+    "./tailwind": {
+      "types": "./dist/tailwind.d.ts",
+      "import": "./dist/tailwind.mjs",
+      "require": "./dist/tailwind.js"
+    },
+    "./theme.css": "./dist/theme.css"
+  },
+  "scripts": {
+    "build": "tsup && cp ../tokens/dist/theme.css dist/theme.css",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@tutti-ui/react": "workspace:*",
+    "@tutti-ui/tokens": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0",
+    "tailwindcss": "^3.3.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "~5.9.2"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "sideEffects": [
+    "./dist/theme.css"
+  ]
+}

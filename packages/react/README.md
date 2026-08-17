@@ -9,8 +9,10 @@ A React component library with 32 component families and 60+ exports, built for 
 ## Install
 
 ```bash
-npm install @tutti-ui/react @tutti-ui/tokens @tutti-ui/shared
+npm install @tutti-ui/react
 ```
+
+For a single package that also exposes the design tokens, install `tutti-ui` instead.
 
 ## Tailwind Setup
 

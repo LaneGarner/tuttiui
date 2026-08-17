@@ -3,9 +3,9 @@
   "changelog": ["@changesets/changelog-github", { "repo": "lanegarner/tutti-ui" }],
   "commit": false,
   "fixed": [],
-  "linked": [["@tutti-ui/tokens", "@tutti-ui/shared", "@tutti-ui/react"]],
+  "linked": [["tutti-ui", "@tutti-ui/tokens", "@tutti-ui/shared", "@tutti-ui/react"]],
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": ["@tutti-ui/storybook", "tutti-ui"]
+  "ignore": ["@tutti-ui/storybook"]
 }
