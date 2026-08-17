@@ -26,6 +26,12 @@ export {
 } from "./components/Radio";
 export { Switch, switchVariants, type SwitchProps } from "./components/Switch";
 export {
+  Stepper,
+  stepperVariants,
+  stepperButtonVariants,
+  type StepperProps,
+} from "./components/Stepper";
+export {
   Card,
   cardVariants,
   CardHeader,
