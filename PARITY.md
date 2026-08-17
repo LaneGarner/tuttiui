@@ -2,9 +2,9 @@
 
 Status of each `@tutti-ui/react` component family in `@tutti-ui/react-native`.
 
-**Summary: 27 of 32 component families ported.** The remaining 5 are web-idiom
-components that either map to a different mobile pattern or are intentionally
-web-only (see the last table).
+**Summary: 27 of 33 component families ported.** Stepper's native port is
+planned; the remaining 5 are web-idiom components that either map to a
+different mobile pattern or are intentionally web-only (see the last table).
 
 Legend: ✅ done · 🔜 deferred · 🌐 web-only by design
 
@@ -19,6 +19,7 @@ Legend: ✅ done · 🔜 deferred · 🌐 web-only by design
 | Checkbox | ✅ | `Pressable` with `accessibilityRole="checkbox"` + check icon |
 | RadioGroup / RadioItem | ✅ | Context-based, controlled/uncontrolled, `accessibilityRole="radio"` |
 | Switch | ✅ | Track + thumb, `accessibilityRole="switch"` |
+| Stepper | 🔜 | Planned. Web version ships first (`role="spinbutton"`, long-press repeat); RN port will use `Pressable` + `accessibilityRole="adjustable"` with `accessibilityActions` increment/decrement |
 | Label | ✅ | Required asterisk, same API |
 | FormField / FormError / FormHint | ✅ | Same context API; `FormError` uses `accessibilityRole="alert"` |
 
