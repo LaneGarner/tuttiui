@@ -42,7 +42,7 @@ npm install react-native-reanimated react-native-svg   # used by Skeleton, Spinn
 Add the tutti-ui preset to your `tailwind.config.js`:
 
 ```js
-const { tuttiPreset } = require("@tutti-ui/react/tailwind");
+const { tuttiPreset } = require("tutti-ui/tailwind");
 
 module.exports = {
   content: [
@@ -87,7 +87,8 @@ Aliasing works too — `--tt-primary: var(--brand)` — which is usually how thi
 is wired into an app that already has its own tokens. The full variable list
 ships as `@tutti-ui/tokens/theme.css`, and is also importable as objects
 (`lightColors` / `darkColors`) for React Native and for anything that needs the
-values in JS.
+values in JS. Web projects can import the same stylesheet as
+`tutti-ui/theme.css`.
 
 Every variant component also carries `data-variant` / `data-state`, which are
 supported selectors: `[data-variant="success"] { ... }` is a stable way to
@@ -264,6 +265,55 @@ vercel --cwd apps/storybook
 
 (or point a Vercel project's Root Directory at `apps/storybook` — the config
 handles the monorepo install and build commands.)
+
+### Publishing to npm
+
+Releases are managed by Changesets and `.github/workflows/release.yml`. A push
+to `main` opens or updates the version PR; merging that PR publishes the new
+versions. The workflow uses npm trusted publishing (OIDC), so it does not need
+a long-lived `NPM_TOKEN`.
+
+The unscoped `tutti-ui` name needs a one-time bootstrap before its first
+automated release:
+
+1. Sign in to the npm account that should own the package and make sure 2FA is
+   enabled:
+
+   ```bash
+   npm login
+   npm whoami
+   ```
+
+2. Build and inspect the exact package:
+
+   ```bash
+   pnpm build
+   pnpm --filter tutti-ui pack --pack-destination /tmp
+   ```
+
+3. Publish `0.2.0` once. The package is unscoped and therefore always public:
+
+   ```bash
+   pnpm --filter tutti-ui publish --access public --no-git-checks
+   ```
+
+4. On npmjs.com, open **Packages → tutti-ui → Settings → Trusted Publisher**
+   and configure:
+
+   - Provider: GitHub Actions
+   - Organization or user: `LaneGarner`
+   - Repository: `tutti-ui`
+   - Workflow filename: `release.yml`
+   - Environment: leave blank
+   - Allowed action: `npm publish`
+
+5. Verify the existing `@tutti-ui/react`, `@tutti-ui/react-native`,
+   `@tutti-ui/tokens`, and `@tutti-ui/shared` packages use the same trusted
+   publisher. Each npm package has its own trusted-publisher setting.
+
+After the bootstrap, do not publish `tutti-ui` manually. Add a changeset,
+merge the generated version PR, and let the release workflow publish the
+linked versions with provenance.
 
 ### Single Package Commands
 
