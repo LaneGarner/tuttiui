@@ -149,7 +149,12 @@ export const lightColors: SemanticColors = {
 
   dangerStrong: p.red[600],
   dangerStrongHover: p.red[700],
-  successStrong: p.green[600],
+  // Deliberate deviation from the pre-0.3.0 literal (green-600): white on
+  // #059669 measures 3.77:1, under the 4.5:1 AA floor. Action fills carry
+  // text a user must read to act, so they are held to AA even in light mode —
+  // unlike the status *indication* fills above, which keep their inherited
+  // literals. green-700 puts white text at 5.48:1.
+  successStrong: p.green[700],
 
   stream: p.cyan[500],
   streamFg: "#FFFFFF",
