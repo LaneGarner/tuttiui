@@ -14,7 +14,7 @@ npm install @tutti-ui/tokens
 import { lightColors, darkColors, spacing, typography } from '@tutti-ui/tokens';
 ```
 
-All numeric values are unitless px. Conversion to rem happens at the consumption boundary (e.g., the Tailwind preset in `@tutti-ui/react`).
+All numeric values are unitless px. px values are authoring units only; consumption is rem via the react tailwind preset (`@tutti-ui/react/tailwind` converts spacing, fontSize, and borderRadius at the boundary — see `packages/react/src/tailwind.ts`). Components must not hard-code px sizes in class strings or inline styles; sizes authored in px break Dynamic Type / browser font scaling. The only legitimate literal px values are hairline borders (`1px`) and the pill radius (`9999px`).
 
 ## Links
 
