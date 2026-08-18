@@ -14,7 +14,7 @@ import {
   type NativeSyntheticEvent,
   type TextInputContentSizeChangeEventData,
 } from "react-native";
-import { cn, useTheme } from "@tutti-ui/shared";
+import { cn, useTheme } from "@tuttiui/shared";
 import { AnimatedSpinner } from "../../primitives";
 
 export interface AIInputProps extends Omit<ViewProps, "children"> {

@@ -3,7 +3,7 @@ module.exports = {
   preset: "ts-jest",
   testEnvironment: "jsdom",
   moduleNameMapper: {
-    "^@tutti-ui/tokens$": "<rootDir>/../tokens/src",
-    "^@tutti-ui/shared$": "<rootDir>/../shared/src",
+    "^@tuttiui/tokens$": "<rootDir>/../tokens/src",
+    "^@tuttiui/shared$": "<rootDir>/../shared/src",
   },
 };

@@ -23,16 +23,16 @@ importers:
 
   apps/storybook:
     dependencies:
-      '@tutti-ui/react':
+      '@tuttiui/react':
         specifier: workspace:*
         version: link:../../packages/react
-      '@tutti-ui/react-native':
+      '@tuttiui/react-native':
         specifier: workspace:*
         version: link:../../packages/react-native
-      '@tutti-ui/shared':
+      '@tuttiui/shared':
         specifier: workspace:*
         version: link:../../packages/shared
-      '@tutti-ui/tokens':
+      '@tuttiui/tokens':
         specifier: workspace:*
         version: link:../../packages/tokens
       react:
@@ -81,10 +81,10 @@ importers:
 
   packages/react:
     dependencies:
-      '@tutti-ui/shared':
+      '@tuttiui/shared':
         specifier: workspace:*
         version: link:../shared
-      '@tutti-ui/tokens':
+      '@tuttiui/tokens':
         specifier: workspace:*
         version: link:../tokens
       class-variance-authority:
@@ -136,10 +136,10 @@ importers:
 
   packages/react-native:
     dependencies:
-      '@tutti-ui/shared':
+      '@tuttiui/shared':
         specifier: workspace:*
         version: link:../shared
-      '@tutti-ui/tokens':
+      '@tuttiui/tokens':
         specifier: workspace:*
         version: link:../tokens
       class-variance-authority:
@@ -194,7 +194,7 @@ importers:
 
   packages/shared:
     dependencies:
-      '@tutti-ui/tokens':
+      '@tuttiui/tokens':
         specifier: workspace:*
         version: link:../tokens
       clsx:
@@ -241,7 +241,33 @@ importers:
         specifier: ~5.9.2
         version: 5.9.3
 
-  packages/tutti-ui-stub: {}
+  packages/tuttiui:
+    dependencies:
+      '@tuttiui/react':
+        specifier: workspace:*
+        version: link:../react
+      '@tuttiui/tokens':
+        specifier: workspace:*
+        version: link:../tokens
+      tailwindcss:
+        specifier: ^3.3.0
+        version: 3.4.19(yaml@2.8.2)
+    devDependencies:
+      '@types/react':
+        specifier: ^19.0.0
+        version: 19.2.14
+      react:
+        specifier: ^19.0.0
+        version: 19.2.4
+      react-dom:
+        specifier: ^19.0.0
+        version: 19.2.4(react@19.2.4)
+      tsup:
+        specifier: ^8.0.0
+        version: 8.5.1(jiti@1.21.7)(postcss@8.5.8)(typescript@5.9.3)(yaml@2.8.2)
+      typescript:
+        specifier: ~5.9.2
+        version: 5.9.3
 
 packages:
 

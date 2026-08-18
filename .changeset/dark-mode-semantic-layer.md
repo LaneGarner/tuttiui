@@ -1,8 +1,8 @@
 ---
-"@tutti-ui/tokens": minor
-"@tutti-ui/shared": minor
-"@tutti-ui/react": minor
-"@tutti-ui/react-native": minor
+"@tuttiui/tokens": minor
+"@tuttiui/shared": minor
+"@tuttiui/react": minor
+"@tuttiui/react-native": minor
 ---
 
 Dark mode, by way of a rethemable semantic color layer.
@@ -21,14 +21,14 @@ and a whole Card wrapper component with a 35-line variable block.
 **New**
 
 - 55 semantic tokens on `SemanticColors`, generated into
-  `@tutti-ui/tokens/theme.css` by `buildThemeCss()`
+  `@tuttiui/tokens/theme.css` by `buildThemeCss()`
 - `data-variant` / `data-state` / `data-level` / `data-active` / `data-part` on
   the components that have variants — a supported styling hook, so consumers
   can target `[data-variant="success"]` instead of reaching through a test id
 - `cyan` added to `palette`; `AgentWorkflow`'s streaming state had been
   rendering `bg-cyan-500`, which only worked because consumers happened to
   have Tailwind's stock palette
-- A WCAG contrast harness (`pnpm --filter @tutti-ui/storybook test:contrast`)
+- A WCAG contrast harness (`pnpm --filter @tuttiui/storybook test:contrast`)
   that renders every component in both themes in a real browser and asserts AA
 - Storybook has a real theme toggle; the old backgrounds swatch only repainted
   the canvas behind the components, which is a large part of why a library with

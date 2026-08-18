@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import { Pressable, View, type ViewProps } from "react-native";
 import { cva } from "class-variance-authority";
-import { cn } from "@tutti-ui/shared";
+import { cn } from "@tuttiui/shared";
 import { useRadioGroupContext } from "./RadioGroup";
 
 const radioOuterVariants = cva(

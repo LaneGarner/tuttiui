@@ -1,6 +1,6 @@
 import { forwardRef, type ReactNode } from "react";
 import { Text, type TextProps } from "react-native";
-import { cn } from "@tutti-ui/shared";
+import { cn } from "@tuttiui/shared";
 import { useFormField } from "./FormField";
 
 export interface FormHintProps extends TextProps {

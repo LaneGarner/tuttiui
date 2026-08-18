@@ -6,7 +6,7 @@ import {
   type KeyboardEvent,
 } from "react";
 import { createPortal } from "react-dom";
-import { cn } from "@tutti-ui/shared";
+import { cn } from "@tuttiui/shared";
 
 export interface CommandItem {
   id: string;

@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import { View, type ViewProps } from "react-native";
-import { cn } from "@tutti-ui/shared";
+import { cn } from "@tuttiui/shared";
 import { AnimatedSpinner } from "../../primitives";
 
 export interface SpinnerProps extends ViewProps {

@@ -1,17 +1,17 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/LaneGarner/tutti-ui/main/assets/tuttiui-lockup.svg" alt="tutti-ui" width="280" />
+  <img src="https://raw.githubusercontent.com/LaneGarner/tuttiui/main/assets/tuttiui-lockup.svg" alt="tuttiui" width="280" />
 </p>
 
-# @tutti-ui/react-native
+# @tuttiui/react-native
 
-React Native components for the tutti-ui design system — 27 component families
-sharing design tokens, prop APIs, and CVA variants with `@tutti-ui/react`,
+React Native components for the tuttiui design system — 27 component families
+sharing design tokens, prop APIs, and CVA variants with `@tuttiui/react`,
 styled with NativeWind.
 
 ## Install
 
 ```bash
-npm install @tutti-ui/react-native @tutti-ui/tokens @tutti-ui/shared nativewind
+npm install @tuttiui/react-native @tuttiui/tokens @tuttiui/shared nativewind
 npm install react-native-reanimated react-native-svg   # used by Skeleton, Spinner, icons
 ```
 
@@ -25,7 +25,7 @@ module.exports = {
   content: [
     './App.{js,ts,jsx,tsx}',
     './src/**/*.{js,ts,jsx,tsx}',
-    './node_modules/@tutti-ui/react-native/dist/**/*.{js,mjs}',
+    './node_modules/@tuttiui/react-native/dist/**/*.{js,mjs}',
   ],
   presets: [require('nativewind/preset')],
 };
@@ -34,8 +34,8 @@ module.exports = {
 ## Usage
 
 ```tsx
-import { Button, Input, Label, Card, CardContent } from '@tutti-ui/react-native';
-import { ThemeProvider, useTheme } from '@tutti-ui/shared/native';
+import { Button, Input, Label, Card, CardContent } from '@tuttiui/react-native';
+import { ThemeProvider, useTheme } from '@tuttiui/shared/native';
 
 function App() {
   return (
@@ -69,14 +69,14 @@ Stack/VStack/HStack, Divider, Tabs
 ### AI-Native
 StreamingText, AIChat, AIInput, OptimisticAction, AgentWorkflow, ConfidenceIndicator
 
-See [PARITY.md](https://github.com/lanegarner/tutti-ui/blob/main/PARITY.md) for
+See [PARITY.md](https://github.com/lanegarner/tuttiui/blob/main/PARITY.md) for
 web/native parity notes, including which web components are intentionally not
 ported (CommandPalette, Breadcrumbs, Sidebar) and what replaces them on mobile.
 
 ## Links
 
-- [GitHub](https://github.com/lanegarner/tutti-ui)
-- [Documentation](https://github.com/lanegarner/tutti-ui#readme)
+- [GitHub](https://github.com/lanegarner/tuttiui)
+- [Documentation](https://github.com/lanegarner/tuttiui#readme)
 
 ## License
 

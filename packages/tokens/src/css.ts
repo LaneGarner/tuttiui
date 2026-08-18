@@ -33,14 +33,14 @@ const block = (selector: string, vars: Record<string, string>): string =>
   `\n}`;
 
 /**
- * The stylesheet shipped as `@tutti-ui/tokens/theme.css`.
+ * The stylesheet shipped as `@tuttiui/tokens/theme.css`.
  *
  * Generated from the token objects rather than maintained by hand, so the
  * variable list cannot drift from `SemanticColors`.
  */
 export const buildThemeCss = (): string =>
   [
-    "/* Generated from @tutti-ui/tokens. Do not edit by hand. */",
+    "/* Generated from @tuttiui/tokens. Do not edit by hand. */",
     block(":root", toCssVars(lightColors)),
     "",
     block(DARK_SELECTOR, toCssVars(darkColors)),

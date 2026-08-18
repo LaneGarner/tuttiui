@@ -1,6 +1,6 @@
 import { forwardRef, type SelectHTMLAttributes } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@tutti-ui/shared";
+import { cn } from "@tuttiui/shared";
 
 const selectVariants = cva(
   "flex w-full rounded-md border border-tt-border-strong bg-tt-field text-sm text-tt-fg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tt-focus focus-visible:border-transparent disabled:cursor-not-allowed disabled:opacity-50 appearance-none",

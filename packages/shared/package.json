@@ -1,16 +1,16 @@
 {
-  "name": "@tutti-ui/shared",
+  "name": "@tuttiui/shared",
   "version": "0.2.0",
-  "description": "Shared utilities for the tutti-ui design system",
+  "description": "Shared utilities for the tuttiui design system",
   "license": "MIT",
   "author": "Lane Garner",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lanegarner/tutti-ui.git",
+    "url": "https://github.com/lanegarner/tuttiui.git",
     "directory": "packages/shared"
   },
-  "homepage": "https://github.com/lanegarner/tutti-ui#readme",
-  "bugs": "https://github.com/lanegarner/tutti-ui/issues",
+  "homepage": "https://github.com/lanegarner/tuttiui#readme",
+  "bugs": "https://github.com/lanegarner/tuttiui/issues",
   "keywords": [
     "react",
     "components",
@@ -42,7 +42,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@tutti-ui/tokens": "workspace:*",
+    "@tuttiui/tokens": "workspace:*",
     "clsx": "^2.1.0",
     "tailwind-merge": "^2.2.0"
   },

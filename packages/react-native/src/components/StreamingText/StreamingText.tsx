@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, type FC } from "react";
 import { Text, AccessibilityInfo, type TextProps } from "react-native";
-import { cn } from "@tutti-ui/shared";
+import { cn } from "@tuttiui/shared";
 import { AnimatedPulse } from "../../primitives";
 
 const SPEED_MAP = {

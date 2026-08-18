@@ -1,5 +1,5 @@
 {
-  "name": "@tutti-ui/storybook",
+  "name": "@tuttiui/storybook",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,10 +9,10 @@
     "test:contrast": "node scripts/contrast.mjs"
   },
   "dependencies": {
-    "@tutti-ui/react": "workspace:*",
-    "@tutti-ui/react-native": "workspace:*",
-    "@tutti-ui/shared": "workspace:*",
-    "@tutti-ui/tokens": "workspace:*",
+    "@tuttiui/react": "workspace:*",
+    "@tuttiui/react-native": "workspace:*",
+    "@tuttiui/shared": "workspace:*",
+    "@tuttiui/tokens": "workspace:*",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-native-web": "^0.19.0"

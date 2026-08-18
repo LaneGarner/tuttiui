@@ -1,4 +1,4 @@
-import type { SemanticColors } from "@tutti-ui/tokens";
+import type { SemanticColors } from "@tuttiui/tokens";
 
 export type ThemeMode = "light" | "dark";
 

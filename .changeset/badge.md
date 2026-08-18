@@ -1,5 +1,5 @@
 ---
-"@tutti-ui/react": minor
+"@tuttiui/react": minor
 ---
 
 New `Badge` component — pill-shaped inline status label.

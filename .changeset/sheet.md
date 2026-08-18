@@ -1,12 +1,12 @@
 ---
-"@tutti-ui/react": minor
-"@tutti-ui/react-native": minor
+"@tuttiui/react": minor
+"@tuttiui/react-native": minor
 ---
 
 New `Sheet` component family: a bottom-anchored modal panel that slides up
 from the edge of the screen, with rounded top corners and a grab handle.
 
-Web (`@tutti-ui/react`):
+Web (`@tuttiui/react`):
 
 - Parts mirror Dialog: `Sheet`, `SheetOverlay`, `SheetContent`, `SheetHeader`,
   `SheetTitle`, `SheetDescription`, `SheetFooter`, `SheetClose` — portal via
@@ -20,7 +20,7 @@ Web (`@tutti-ui/react`):
   (pointer events).
 - Body scroll is locked while open.
 
-React Native (`@tutti-ui/react-native`):
+React Native (`@tuttiui/react-native`):
 
 - Same part names wrapping RN `Modal` (`animationType="slide"`, transparent),
   hardware back closes via `onRequestClose`.

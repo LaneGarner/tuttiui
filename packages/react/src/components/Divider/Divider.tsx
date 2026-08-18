@@ -1,6 +1,6 @@
 import { forwardRef, type HTMLAttributes } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@tutti-ui/shared";
+import { cn } from "@tuttiui/shared";
 
 const dividerVariants = cva("shrink-0", {
   variants: {

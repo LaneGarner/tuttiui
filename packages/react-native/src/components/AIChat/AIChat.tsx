@@ -1,6 +1,6 @@
 import { forwardRef, useEffect, useRef } from "react";
 import { ScrollView, View, Text, type ViewProps } from "react-native";
-import { cn } from "@tutti-ui/shared";
+import { cn } from "@tuttiui/shared";
 import { AnimatedPulse } from "../../primitives";
 
 export interface ChatMessage {

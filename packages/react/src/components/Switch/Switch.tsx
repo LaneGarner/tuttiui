@@ -1,6 +1,6 @@
 import { forwardRef, useState, type ButtonHTMLAttributes } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@tutti-ui/shared";
+import { cn } from "@tuttiui/shared";
 
 const switchVariants = cva(
   "peer inline-flex shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tt-focus focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",

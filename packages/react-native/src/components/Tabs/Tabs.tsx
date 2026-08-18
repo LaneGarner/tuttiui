@@ -8,7 +8,7 @@ import {
 } from "react";
 import { View, Pressable, Text, type ViewProps } from "react-native";
 import { cva } from "class-variance-authority";
-import { cn } from "@tutti-ui/shared";
+import { cn } from "@tuttiui/shared";
 
 interface TabsContextValue {
   value: string;

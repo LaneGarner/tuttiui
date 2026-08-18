@@ -1,12 +1,12 @@
 {
-  "name": "tutti-ui-monorepo",
+  "name": "tuttiui-monorepo",
   "private": true,
   "scripts": {
     "build": "turbo run build",
     "test": "turbo run test",
     "typecheck": "turbo run typecheck",
     "lint": "turbo run lint",
-    "storybook": "pnpm --filter @tutti-ui/storybook storybook",
+    "storybook": "pnpm --filter @tuttiui/storybook storybook",
     "clean": "turbo run clean",
     "changeset": "changeset",
     "version-packages": "changeset version",

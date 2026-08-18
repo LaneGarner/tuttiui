@@ -15,7 +15,7 @@ import {
   type PressableProps,
   type ViewProps,
 } from "react-native";
-import { cn } from "@tutti-ui/shared";
+import { cn } from "@tuttiui/shared";
 
 interface TooltipContextValue {
   open: boolean;

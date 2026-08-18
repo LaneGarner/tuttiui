@@ -1,5 +1,5 @@
 import { forwardRef, type HTMLAttributes, type ReactNode, Children, Fragment } from "react";
-import { cn } from "@tutti-ui/shared";
+import { cn } from "@tuttiui/shared";
 
 export interface BreadcrumbsProps extends HTMLAttributes<HTMLElement> {
   separator?: ReactNode;

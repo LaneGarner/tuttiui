@@ -1,29 +1,31 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/LaneGarner/tutti-ui/main/assets/tuttiui-lockup.svg" alt="tutti-ui" width="280" />
+  <img src="https://raw.githubusercontent.com/LaneGarner/tuttiui/main/assets/tuttiui-lockup.svg" alt="tuttiui" width="280" />
 </p>
 
-# @tutti-ui/react
+# @tuttiui/react
 
 A React component library with 32 component families and 60+ exports, built for web with Tailwind CSS.
 
 ## Install
 
 ```bash
-npm install @tutti-ui/react @tutti-ui/tokens @tutti-ui/shared
+npm install @tuttiui/react
 ```
+
+For a single package that also exposes the design tokens, install `tuttiui` instead.
 
 ## Tailwind Setup
 
-Add the tutti-ui preset to your `tailwind.config.js`:
+Add the tuttiui preset to your `tailwind.config.js`:
 
 ```js
-const tuttiPreset = require('@tutti-ui/react/tailwind');
+const tuttiPreset = require('@tuttiui/react/tailwind');
 
 module.exports = {
   presets: [tuttiPreset],
   content: [
     './src/**/*.{js,ts,jsx,tsx}',
-    './node_modules/@tutti-ui/react/dist/**/*.{js,mjs}',
+    './node_modules/@tuttiui/react/dist/**/*.{js,mjs}',
   ],
 };
 ```
@@ -31,7 +33,7 @@ module.exports = {
 ## Usage
 
 ```tsx
-import { Button, Input, Card } from '@tutti-ui/react';
+import { Button, Input, Card } from '@tuttiui/react';
 
 function App() {
   return (
@@ -64,8 +66,8 @@ StreamingText, AIChat, AIInput, OptimisticAction, AgentWorkflow, ConfidenceIndic
 
 ## Links
 
-- [GitHub](https://github.com/lanegarner/tutti-ui)
-- [Documentation](https://github.com/lanegarner/tutti-ui#readme)
+- [GitHub](https://github.com/lanegarner/tuttiui)
+- [Documentation](https://github.com/lanegarner/tuttiui#readme)
 
 ## License
 

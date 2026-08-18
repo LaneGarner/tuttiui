@@ -14,9 +14,9 @@ module.exports = {
     ],
   },
   moduleNameMapper: {
-    "^@tutti-ui/tokens$": "<rootDir>/../tokens/src",
-    "^@tutti-ui/shared/native$": "<rootDir>/../shared/src/native",
-    "^@tutti-ui/shared$": "<rootDir>/../shared/src",
+    "^@tuttiui/tokens$": "<rootDir>/../tokens/src",
+    "^@tuttiui/shared/native$": "<rootDir>/../shared/src/native",
+    "^@tuttiui/shared$": "<rootDir>/../shared/src",
     "^react-native$": "<rootDir>/jest/react-native-mock.js",
     "^react-native/(.*)$": "<rootDir>/jest/react-native-mock.js",
     "^react-native-reanimated$": "<rootDir>/jest/reanimated-mock.js",

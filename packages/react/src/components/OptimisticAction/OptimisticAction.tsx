@@ -1,6 +1,6 @@
 import { forwardRef, useState, useCallback, useRef, type ButtonHTMLAttributes } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@tutti-ui/shared";
+import { cn } from "@tuttiui/shared";
 
 type ActionState = "idle" | "pending" | "confirmed" | "failed";
 

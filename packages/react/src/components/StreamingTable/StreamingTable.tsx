@@ -1,5 +1,5 @@
 import { forwardRef, type HTMLAttributes } from "react";
-import { cn } from "@tutti-ui/shared";
+import { cn } from "@tuttiui/shared";
 
 export interface StreamingColumn {
   key: string;

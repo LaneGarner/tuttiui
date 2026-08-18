@@ -2,11 +2,11 @@
   <img src="assets/tuttiui-lockup.svg" alt="" width="360" />
 </p>
 
-# tutti-ui
+# tuttiui
 
 A comprehensive component library for React and React Native with shared design tokens, accessibility-first components, and AI-native UI primitives.
 
-**[Explore the live Storybook →](https://lanegarner.github.io/tutti-ui/)**
+**[Explore the live Storybook →](https://lanegarner.github.io/tuttiui/)**
 
 ## Features
 
@@ -25,27 +25,29 @@ A comprehensive component library for React and React Native with shared design 
 ### React (web)
 
 ```bash
-npm install @tutti-ui/react @tutti-ui/tokens @tutti-ui/shared
+npm install tuttiui
 ```
+
+The framework-explicit `npm install @tuttiui/react` remains fully supported.
 
 ### React Native
 
 ```bash
-npm install @tutti-ui/react-native @tutti-ui/tokens @tutti-ui/shared nativewind
+npm install @tuttiui/react-native @tuttiui/tokens @tuttiui/shared nativewind
 npm install react-native-reanimated react-native-svg   # used by Skeleton, Spinner, icons
 ```
 
 ### Tailwind CSS Setup
 
-Add the tutti-ui preset to your `tailwind.config.js`:
+Add the tuttiui preset to your `tailwind.config.js`:
 
 ```js
-const { tuttiPreset } = require("@tutti-ui/react/tailwind");
+const { tuttiPreset } = require("tuttiui/tailwind");
 
 module.exports = {
   content: [
     "./src/**/*.{ts,tsx}",
-    "./node_modules/@tutti-ui/react/dist/**/*.{js,mjs}",
+    "./node_modules/@tuttiui/react/dist/**/*.{js,mjs}",
   ],
   presets: [tuttiPreset],
 };
@@ -83,9 +85,10 @@ at equal specificity:
 
 Aliasing works too — `--tt-primary: var(--brand)` — which is usually how this
 is wired into an app that already has its own tokens. The full variable list
-ships as `@tutti-ui/tokens/theme.css`, and is also importable as objects
+ships as `@tuttiui/tokens/theme.css`, and is also importable as objects
 (`lightColors` / `darkColors`) for React Native and for anything that needs the
-values in JS.
+values in JS. Web projects can import the same stylesheet as
+`tuttiui/theme.css`.
 
 Every variant component also carries `data-variant` / `data-state`, which are
 supported selectors: `[data-variant="success"] { ... }` is a stable way to
@@ -96,7 +99,7 @@ reach a specific state from your own CSS.
 ### React (web)
 
 ```tsx
-import { Button, Input, Label, Card, CardContent } from "@tutti-ui/react";
+import { Button, Input, Label, Card, CardContent } from "tuttiui";
 
 function App() {
   return (
@@ -116,8 +119,8 @@ function App() {
 Same tokens, same prop APIs, NativeWind under the hood:
 
 ```tsx
-import { Button, Input, Label, Card, CardContent } from "@tutti-ui/react-native";
-import { ThemeProvider } from "@tutti-ui/shared/native";
+import { Button, Input, Label, Card, CardContent } from "@tuttiui/react-native";
+import { ThemeProvider } from "@tuttiui/shared/native";
 
 function App() {
   return (
@@ -134,13 +137,13 @@ function App() {
 }
 ```
 
-Add the tutti-ui preset to your NativeWind `tailwind.config.js` `content` and
+Add the tuttiui preset to your NativeWind `tailwind.config.js` `content` and
 `presets` the same way as on web (see Tailwind CSS Setup above), pointing
-`content` at `./node_modules/@tutti-ui/react-native/dist/**/*.{js,mjs}`.
+`content` at `./node_modules/@tuttiui/react-native/dist/**/*.{js,mjs}`.
 
 ### React Native parity
 
-29 of 38 web component families are available in `@tutti-ui/react-native`,
+29 of 38 web component families are available in `@tuttiui/react-native`,
 including all original form controls, feedback, layout, and AI-native
 components plus the new `Sheet` and `TabBar`. `CommandPalette`, `Breadcrumbs`,
 and `Sidebar` are web-only by design (their mobile equivalents belong to the
@@ -213,27 +216,27 @@ in [PARITY.md](./PARITY.md).
 
 | Package | Description |
 |---------|-------------|
-| `@tutti-ui/tokens` | Design tokens (colors, spacing, typography, radii, shadows + `nativeShadows`) |
-| `@tutti-ui/shared` | `cn()` utility, `ThemeProvider`, `useTheme` hook (web at `.`, RN at `./native`) |
-| `@tutti-ui/react` | React (web) components + Tailwind preset |
-| `@tutti-ui/react-native` | React Native components (NativeWind) |
-| `@tutti-ui/storybook` | Storybook app (internal) |
-| `tutti-ui` | npm name-claim stub pointing at `@tutti-ui/react` (internal, published manually) |
+| `tuttiui` | Single-install React components and design tokens (recommended for web) |
+| `@tuttiui/tokens` | Design tokens (colors, spacing, typography, radii, shadows + `nativeShadows`) |
+| `@tuttiui/shared` | `cn()` utility, `ThemeProvider`, `useTheme` hook (web at `.`, RN at `./native`) |
+| `@tuttiui/react` | React (web) components + Tailwind preset |
+| `@tuttiui/react-native` | React Native components (NativeWind) |
+| `@tuttiui/storybook` | Storybook app (internal) |
 
 ### Dependency Graph
 
 ```
-@tutti-ui/tokens
+@tuttiui/tokens
        |
-@tutti-ui/shared
+@tuttiui/shared
        |
        +---------------------+
        |                     |
-@tutti-ui/react    @tutti-ui/react-native
+@tuttiui/react    @tuttiui/react-native
        |                     |
        +---------------------+
        |
-@tutti-ui/storybook
+@tuttiui/storybook
 ```
 
 ## Development
@@ -250,7 +253,7 @@ pnpm clean              # Remove all build artifacts
 ### Deploying Storybook
 
 Storybook deploys automatically to
-[GitHub Pages](https://lanegarner.github.io/tutti-ui/) on every push to `main`
+[GitHub Pages](https://lanegarner.github.io/tuttiui/) on every push to `main`
 (`.github/workflows/deploy-storybook.yml`).
 
 The app also builds statically for Vercel via `apps/storybook/vercel.json` as
@@ -263,12 +266,61 @@ vercel --cwd apps/storybook
 (or point a Vercel project's Root Directory at `apps/storybook` — the config
 handles the monorepo install and build commands.)
 
+### Publishing to npm
+
+Releases are managed by Changesets and `.github/workflows/release.yml`. A push
+to `main` opens or updates the version PR; merging that PR publishes the new
+versions. The workflow uses npm trusted publishing (OIDC), so it does not need
+a long-lived `NPM_TOKEN`.
+
+The unscoped `tuttiui` name needs a one-time bootstrap before its first
+automated release:
+
+1. Sign in to the npm account that should own the package and make sure 2FA is
+   enabled:
+
+   ```bash
+   npm login
+   npm whoami
+   ```
+
+2. Build and inspect the exact package:
+
+   ```bash
+   pnpm build
+   pnpm --filter tuttiui pack --pack-destination /tmp
+   ```
+
+3. Publish `0.2.0` once. The package is unscoped and therefore always public:
+
+   ```bash
+   pnpm --filter tuttiui publish --access public --no-git-checks
+   ```
+
+4. On npmjs.com, open **Packages → tuttiui → Settings → Trusted Publisher**
+   and configure:
+
+   - Provider: GitHub Actions
+   - Organization or user: `LaneGarner`
+   - Repository: `tuttiui`
+   - Workflow filename: `release.yml`
+   - Environment: leave blank
+   - Allowed action: `npm publish`
+
+5. Verify the existing `@tuttiui/react`, `@tuttiui/react-native`,
+   `@tuttiui/tokens`, and `@tuttiui/shared` packages use the same trusted
+   publisher. Each npm package has its own trusted-publisher setting.
+
+After the bootstrap, do not publish `tuttiui` manually. Add a changeset,
+merge the generated version PR, and let the release workflow publish the
+linked versions with provenance.
+
 ### Single Package Commands
 
 ```bash
-pnpm --filter @tutti-ui/react test                              # Run react tests
-pnpm --filter @tutti-ui/react test -- --testPathPattern=Button   # Run single test
-pnpm --filter @tutti-ui/tokens build                             # Build tokens only
+pnpm --filter @tuttiui/react test                              # Run react tests
+pnpm --filter @tuttiui/react test -- --testPathPattern=Button   # Run single test
+pnpm --filter @tuttiui/tokens build                             # Build tokens only
 ```
 
 ## Tech Stack

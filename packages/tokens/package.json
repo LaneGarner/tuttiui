@@ -1,16 +1,16 @@
 {
-  "name": "@tutti-ui/tokens",
+  "name": "@tuttiui/tokens",
   "version": "0.2.0",
-  "description": "Design tokens for the tutti-ui design system",
+  "description": "Design tokens for the tuttiui design system",
   "license": "MIT",
   "author": "Lane Garner",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lanegarner/tutti-ui.git",
+    "url": "https://github.com/lanegarner/tuttiui.git",
     "directory": "packages/tokens"
   },
-  "homepage": "https://github.com/lanegarner/tutti-ui#readme",
-  "bugs": "https://github.com/lanegarner/tutti-ui/issues",
+  "homepage": "https://github.com/lanegarner/tuttiui#readme",
+  "bugs": "https://github.com/lanegarner/tuttiui/issues",
   "keywords": [
     "react",
     "components",

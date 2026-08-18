@@ -8,7 +8,7 @@ import {
   type PointerEvent,
 } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@tutti-ui/shared";
+import { cn } from "@tuttiui/shared";
 
 const stepperVariants = cva(
   "inline-flex items-center rounded-full border border-tt-border bg-tt-surface transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tt-focus focus-visible:ring-offset-2 data-[state=disabled]:cursor-not-allowed data-[state=disabled]:opacity-50",

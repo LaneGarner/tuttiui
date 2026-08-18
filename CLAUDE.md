@@ -6,16 +6,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```bash
 pnpm build          # Build all packages (topological: tokens -> shared -> react/react-native -> storybook)
-pnpm test           # Run all tests (Jest in @tutti-ui/react and @tutti-ui/react-native)
+pnpm test           # Run all tests (Jest in @tuttiui/react and @tuttiui/react-native)
 pnpm typecheck      # tsc --noEmit across all packages
 pnpm storybook      # Launch Storybook at localhost:6006
 pnpm clean          # Remove all dist/ and storybook-static/
 
 # Single package
-pnpm --filter @tutti-ui/react test          # Run only react tests
-pnpm --filter @tutti-ui/react-native test   # Run only react-native tests
-pnpm --filter @tutti-ui/tokens build        # Build only tokens
-pnpm --filter @tutti-ui/react test -- --testPathPattern=Button  # Run a single test file
+pnpm --filter @tuttiui/react test          # Run only react tests
+pnpm --filter @tuttiui/react-native test   # Run only react-native tests
+pnpm --filter @tuttiui/tokens build        # Build only tokens
+pnpm --filter @tuttiui/react test -- --testPathPattern=Button  # Run a single test file
 ```
 
 ## Architecture
@@ -25,24 +25,24 @@ This is a pnpm + Turborepo monorepo for a design system targeting React (web) an
 ### Package dependency graph
 
 ```
-@tutti-ui/tokens  (no deps)
+@tuttiui/tokens  (no deps)
        ↓
-@tutti-ui/shared  (depends on tokens; peers: react, react-native [optional]; "./native" subpath export)
+@tuttiui/shared  (depends on tokens; peers: react, react-native [optional]; "./native" subpath export)
        ↓                              ↓
-@tutti-ui/react                @tutti-ui/react-native
+@tuttiui/react                @tuttiui/react-native
 (peers: react, react-dom,      (peers: react, react-native, nativewind;
  tailwindcss)                   optional: react-native-reanimated, react-native-svg)
        ↓                              ↓
-@tutti-ui/storybook  (app, renders both via react-native-web + shims)
+@tuttiui/storybook  (app, renders both via react-native-web + shims)
 ```
 
 ### Package roles
 
 - **`packages/tokens`** — Design tokens (colors, spacing, typography, radii, shadows + `nativeShadows` for RN shadow objects). All numeric values are unitless px; conversion to rem happens at the consumption boundary (see `packages/react/src/tailwind.ts`). `lightColors`/`darkColors` hold the 55 semantic colors; `buildThemeCss()` generates `dist/theme.css` from them so the stylesheet cannot drift from the objects.
 - **`packages/shared`** — `cn()` (clsx + tailwind-merge, works with NativeWind classNames too), `ThemeProvider`/`useTheme`. The web entry (`.`) detects system preference via `matchMedia`; the native entry (`./native`, built from `src/native.ts`) uses RN's `useColorScheme` (`ThemeProviderNative.tsx`). Both accept `onPreferenceChange` for persistence (no storage baked in).
-- **`packages/react`** — Web components built with `forwardRef` + `cva` (class-variance-authority) + `cn()`. Exports a Tailwind v3 preset at `@tutti-ui/react/tailwind` that transforms token px values to rem. Tests use Jest + @testing-library/react.
+- **`packages/react`** — Web components built with `forwardRef` + `cva` (class-variance-authority) + `cn()`. Exports a Tailwind v3 preset at `@tuttiui/react/tailwind` that transforms token px values to rem. Tests use Jest + @testing-library/react.
 - **`packages/react-native`** — RN components styled with NativeWind classNames, same CVA variants and prop APIs as the web versions where the platform allows. Accessibility via `accessibilityRole`/`accessibilityLabel`/`accessibilityState`/`accessibilityValue`. Tests run against lightweight RN mocks (`jest/react-native-mock.js`) with a `@testing-library/react-native`-compatible shim (`jest/testing-library-shim.js`) on jsdom — no Metro/babel needed. `src/nativewind.d.ts` augments RN types with `className`.
-- **`apps/storybook`** — Storybook 8 with `@storybook/react-vite`, configured with the tutti-ui Tailwind preset. Renders RN stories through `react-native-web` plus web shims for reanimated/svg (`src/shims/`). Deployable to Vercel via `apps/storybook/vercel.json`.
+- **`apps/storybook`** — Storybook 8 with `@storybook/react-vite`, configured with the tuttiui Tailwind preset. Renders RN stories through `react-native-web` plus web shims for reanimated/svg (`src/shims/`). Deployable to Vercel via `apps/storybook/vercel.json`.
 
 ### Key patterns
 
@@ -55,7 +55,7 @@ This is a pnpm + Turborepo monorepo for a design system targeting React (web) an
 - No external animation libraries — CSS animations/transitions only (`animate-pulse`, `animate-spin`, `transition-*`)
 - **Colors are always semantic.** Components use `bg-tt-surface` / `text-tt-fg-muted` / `border-tt-border`, never `bg-white` or `text-gray-700`. Each name resolves to a `--tt-*` variable, which is what makes dark mode and consumer retheming work with no `dark:` variants in component source. A literal color class in a component is a bug; `grep -rE '(bg|text|border|ring)-(white|gray|blue|green|amber|red)' packages/*/src/components --include=*.tsx` should stay empty
 - Variant components expose `data-variant` / `data-state` / `data-level` on the styled node. Tests assert those rather than class strings — a class-name assertion churns on every restyle and passes happily when a theme is unreadable
-- Contrast is verified in a real browser, not Jest: `pnpm --filter @tutti-ui/storybook test:contrast` renders both themes and asserts WCAG AA. jsdom has no stylesheet, so `getComputedStyle` there tells you nothing about color
+- Contrast is verified in a real browser, not Jest: `pnpm --filter @tuttiui/storybook test:contrast` renders both themes and asserts WCAG AA. jsdom has no stylesheet, so `getComputedStyle` there tells you nothing about color
 - In `exports` fields, `types` must come before `import`/`require` to avoid bundler warnings
 - Jest config is `.js` (not `.ts`) to avoid needing ts-node; uses `moduleNameMapper` to resolve workspace packages to source
 - Tests use Jest + @testing-library/react + @testing-library/user-event (web); the RN package uses the same Jest/jsdom stack against RN mocks via `moduleNameMapper`
@@ -114,11 +114,11 @@ This is a pnpm + Turborepo monorepo for a design system targeting React (web) an
 | **ConfidenceIndicator** | Color-coded bar (red/amber/green), role="meter", 3 sizes |
 | **StreamingTable** | Streaming rows with skeleton cells, pending/streaming/complete states |
 
-## React Native package (`@tutti-ui/react-native`)
+## React Native package (`@tuttiui/react-native`)
 
 27 of the 32 families above are ported with matching prop APIs — all Form Inputs & Controls, all Display & Feedback, Stack/Divider/Tabs, and all seven AI-Native minus StreamingTable. Platform adaptations: Select is a trigger + bottom-sheet Modal picker (`options`/`value`/`onValueChange`), Tooltip opens on long-press with timed auto-hide, Dialog uses RN `Modal`. Not ported: CommandPalette, Breadcrumbs, Sidebar (web-only by design), NavMenu and StreamingTable (native equivalents deferred). Full rationale in `PARITY.md`.
 
 ### Known issues
 
 - `@storybook/react` types are not installed in the component packages, so `.stories.tsx` files are excluded from package `tsconfig.json` typecheck (Storybook itself builds them fine)
-- `react-native-reanimated` and `react-native-svg` are marked optional peer deps of `@tutti-ui/react-native`, but Skeleton/Spinner/Checkbox/Select icons import them directly — apps using those components need them installed
+- `react-native-reanimated` and `react-native-svg` are marked optional peer deps of `@tuttiui/react-native`, but Skeleton/Spinner/Checkbox/Select icons import them directly — apps using those components need them installed

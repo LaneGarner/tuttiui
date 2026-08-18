@@ -1,5 +1,5 @@
 ---
-"@tutti-ui/react": minor
+"@tuttiui/react": minor
 ---
 
 New `SegmentedControl` compound component (`SegmentedControl` / `Segment`).

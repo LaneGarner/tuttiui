@@ -9,7 +9,7 @@ import {
   toCssVars,
   cssVarName,
   DARK_SELECTOR,
-} from "@tutti-ui/tokens";
+} from "@tuttiui/tokens";
 import plugin from "tailwindcss/plugin";
 
 function pxToRem(px: number): string {

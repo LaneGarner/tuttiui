@@ -1,5 +1,5 @@
 ---
-"@tutti-ui/react": minor
+"@tuttiui/react": minor
 ---
 
 New `Collapsible` compound component (`Collapsible` / `CollapsibleTrigger` /

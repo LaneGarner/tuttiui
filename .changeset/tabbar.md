@@ -1,12 +1,12 @@
 ---
-"@tutti-ui/react": minor
-"@tutti-ui/react-native": minor
+"@tuttiui/react": minor
+"@tuttiui/react-native": minor
 ---
 
 New `TabBar` component: fixed bottom navigation for mobile layouts, the
 native-counterpart answer to NavMenu planned in PARITY.md.
 
-Web (`@tutti-ui/react`):
+Web (`@tuttiui/react`):
 
 - `TabBar` renders a `nav` landmark (default `aria-label="Main"`) fixed to
   the bottom edge with a hairline `tt-border` top border; `safeArea` adds
@@ -16,7 +16,7 @@ Web (`@tutti-ui/react`):
   `data-active` and primary color; inactive items are muted. Items are
   evenly distributed with a guaranteed 44px minimum touch target.
 
-React Native (`@tutti-ui/react-native`):
+React Native (`@tuttiui/react-native`):
 
 - Same compound API: `TabBar` (`accessibilityRole="tablist"`, `bottomInset`
   prop for safe-area padding) + `TabBarItem` (`Pressable` with

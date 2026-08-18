@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo, useCallback, type ReactNode } from "react";
 import { useColorScheme } from "react-native";
-import { lightColors, darkColors } from "@tutti-ui/tokens";
+import { lightColors, darkColors } from "@tuttiui/tokens";
 import { ThemeContext } from "./ThemeContext";
 import type { ThemePreference, ThemeMode } from "../types";
 

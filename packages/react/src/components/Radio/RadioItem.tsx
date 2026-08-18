@@ -1,6 +1,6 @@
 import { forwardRef, type InputHTMLAttributes } from "react";
 import { cva } from "class-variance-authority";
-import { cn } from "@tutti-ui/shared";
+import { cn } from "@tuttiui/shared";
 import { useRadioGroupContext } from "./RadioGroup";
 
 const radioItemVariants = cva(
