@@ -1,6 +1,6 @@
-# @tuttiui/tokens
+# @tuttiui/react-native
 
-## 0.3.0
+## 0.2.0
 
 ### Minor Changes
 
@@ -59,42 +59,53 @@
   Light mode is unchanged: every light token is the exact literal the components
   rendered before, which is why this is safe to adopt in place.
 
+- [#13](https://github.com/LaneGarner/tuttiui/pull/13) [`6e340a9`](https://github.com/LaneGarner/tuttiui/commit/6e340a980460ea0febcdac618c25efa3c752acbf) Thanks [@LaneGarner](https://github.com/LaneGarner)! - New `Sheet` component family: a bottom-anchored modal panel that slides up
+  from the edge of the screen, with rounded top corners and a grab handle.
+
+  Web (`@tuttiui/react`):
+
+  - Parts mirror Dialog: `Sheet`, `SheetOverlay`, `SheetContent`, `SheetHeader`,
+    `SheetTitle`, `SheetDescription`, `SheetFooter`, `SheetClose` — portal via
+    `createPortal`, focus moved into the sheet on open, Escape and overlay click
+    close, `role="dialog"` + `aria-modal` + `aria-labelledby`/`describedby`,
+    `data-state` attrs.
+  - `snapPoints` (viewport fractions, e.g. `[0.5, 0.9]`): the sheet opens at the
+    first point and dragging up/down moves between points; height animates with
+    CSS transitions (`motion-reduce:transition-none`), no animation libraries.
+  - `dismissOnDrag`: dragging the sheet downward past a threshold closes it
+    (pointer events).
+  - Body scroll is locked while open.
+
+  React Native (`@tuttiui/react-native`):
+
+  - Same part names wrapping RN `Modal` (`animationType="slide"`, transparent),
+    hardware back closes via `onRequestClose`.
+  - `snapPoints` degrades to the first point as a fixed height (see PARITY.md).
+
+- [#13](https://github.com/LaneGarner/tuttiui/pull/13) [`f1fabea`](https://github.com/LaneGarner/tuttiui/commit/f1fabeab0300e7606b7d1b0cf834b3ed21fefab5) Thanks [@LaneGarner](https://github.com/LaneGarner)! - New `TabBar` component: fixed bottom navigation for mobile layouts, the
+  native-counterpart answer to NavMenu planned in PARITY.md.
+
+  Web (`@tuttiui/react`):
+
+  - `TabBar` renders a `nav` landmark (default `aria-label="Main"`) fixed to
+    the bottom edge with a hairline `tt-border` top border; `safeArea` adds
+    `env(safe-area-inset-bottom)` padding for notched devices.
+  - `TabBarItem` takes `icon`/`label`/`active`; renders a button, or an anchor
+    when `href` is given. Active items get `aria-current="page"` +
+    `data-active` and primary color; inactive items are muted. Items are
+    evenly distributed with a guaranteed 44px minimum touch target.
+
+  React Native (`@tuttiui/react-native`):
+
+  - Same compound API: `TabBar` (`accessibilityRole="tablist"`, `bottomInset`
+    prop for safe-area padding) + `TabBarItem` (`Pressable` with
+    `accessibilityRole="tab"`, `accessibilityState.selected`, 44pt minimum
+    height).
+
 - [#15](https://github.com/LaneGarner/tuttiui/pull/15) [`19c9a2b`](https://github.com/LaneGarner/tuttiui/commit/19c9a2b89b7db95740a99eab43c8d6cc9fafc3e5) Thanks [@LaneGarner](https://github.com/LaneGarner)! - Publish the design system under the lowercase `tuttiui` brand and `@tuttiui` npm scope. Package APIs and the `--tt-*` theming namespace remain unchanged; see `MIGRATION.md` for the package-name mapping.
 
 ### Patch Changes
 
-- [#13](https://github.com/LaneGarner/tuttiui/pull/13) [`72529da`](https://github.com/LaneGarner/tuttiui/commit/72529daadb50f01248b87b52d22ad0a6b57f7828) Thanks [@LaneGarner](https://github.com/LaneGarner)! - Hold action-fill text to WCAG AA (4.5:1) in both themes and lock it in with
-  contrast tests (DK-02).
-
-  - `lightColors.successStrong` darkened green-600 → green-700: OptimisticAction
-    `confirmed` rendered white text on `#059669` at 3.77:1; on `#047857` it
-    measures 5.48:1. This is a deliberate deviation from the pre-0.3.0 literal —
-    action fills carry text the user must read to act.
-  - New `action fill contrast` test suite asserts `primaryFg` on
-    `primary`/`primaryHover`, `dangerFg` on `dangerStrong`/`dangerStrongHover`,
-    and `successFg` on `successStrong` all meet 4.5:1 in both light and dark
-    sets, so the dark-mode regression DK-02 reported (white on blue-400,
-    2.54:1) can never reland. Button already reads `--tt-primary-fg` via
-    `text-tt-primary-fg`, so no call-site changes.
-  - `theme.css` regenerated from the token objects.
-
-- [#13](https://github.com/LaneGarner/tuttiui/pull/13) [`13299df`](https://github.com/LaneGarner/tuttiui/commit/13299df606133164dfb0a61157cdd689b2c68764) Thanks [@LaneGarner](https://github.com/LaneGarner)! - Guard the px→rem boundary and lock status tint contrast to AA.
-
-  - `Textarea`'s `min-h-[80px]` was the one place a component authored a size in
-    px past the preset's rem boundary; it is now `min-h-[5rem]` so the field
-    scales with browser font size like everything else. An audit of
-    `packages/react/src` found no other offenders — remaining literal px are
-    hairline borders and the `9999px` pill radius, which are legitimately px.
-  - The tokens test suite now computes WCAG contrast for every status family's
-    `OnSubtle`-on-`Subtle` pairing (primary/success/warning/danger/info) and
-    asserts 4.5:1 in both `lightColors` and `darkColors`, so a future Badge tint
-    cannot regress below AA. All current pairs already pass (weakest: light
-    warning at 6.84:1).
-  - `@tuttiui/tokens` README documents the rule: px values are authoring units
-    only; consumption is rem via the react tailwind preset.
-
-## 0.2.0
-
-### Minor Changes
-
-- [#2](https://github.com/LaneGarner/tuttiui/pull/2) [`0e1d148`](https://github.com/LaneGarner/tuttiui/commit/0e1d1482ad546be1ad4aabd1dfe2f9ed09be8656) Thanks [@LaneGarner](https://github.com/LaneGarner)! - Initial release of tuttiui design system
+- Updated dependencies [[`72529da`](https://github.com/LaneGarner/tuttiui/commit/72529daadb50f01248b87b52d22ad0a6b57f7828), [`17092f5`](https://github.com/LaneGarner/tuttiui/commit/17092f59ef9ba5db15a75705784daef8e21dfc3d), [`19c9a2b`](https://github.com/LaneGarner/tuttiui/commit/19c9a2b89b7db95740a99eab43c8d6cc9fafc3e5), [`13299df`](https://github.com/LaneGarner/tuttiui/commit/13299df606133164dfb0a61157cdd689b2c68764)]:
+  - @tuttiui/tokens@0.3.0
+  - @tuttiui/shared@0.3.0
