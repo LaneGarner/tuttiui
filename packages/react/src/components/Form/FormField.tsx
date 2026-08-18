@@ -1,5 +1,5 @@
 import { createContext, useContext, type ReactNode } from "react";
-import { cn } from "@tutti-ui/shared";
+import { cn } from "@tuttiui/shared";
 
 export interface FormFieldContextValue {
   id: string;

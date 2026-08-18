@@ -1,6 +1,6 @@
 import { forwardRef, type HTMLAttributes, type ReactNode } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@tutti-ui/shared";
+import { cn } from "@tuttiui/shared";
 
 const toastVariants = cva(
   "pointer-events-auto flex w-full items-start gap-3 rounded-lg border p-4 shadow-lg",

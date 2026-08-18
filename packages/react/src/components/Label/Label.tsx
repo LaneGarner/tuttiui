@@ -1,6 +1,6 @@
 import { forwardRef, type LabelHTMLAttributes } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@tutti-ui/shared";
+import { cn } from "@tuttiui/shared";
 
 const labelVariants = cva(
   "text-sm font-medium text-tt-fg-muted peer-disabled:cursor-not-allowed peer-disabled:opacity-70"

@@ -10,7 +10,7 @@ import {
   type ReactNode,
 } from "react";
 import { createPortal } from "react-dom";
-import { cn } from "@tutti-ui/shared";
+import { cn } from "@tuttiui/shared";
 
 interface DialogContextValue {
   open: boolean;

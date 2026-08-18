@@ -5,7 +5,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { cn } from "@tutti-ui/shared";
+import { cn } from "@tuttiui/shared";
 
 export interface RadioGroupContextValue {
   name: string;

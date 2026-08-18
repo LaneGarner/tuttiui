@@ -6,7 +6,7 @@ import {
   type ButtonHTMLAttributes,
   type ReactNode,
 } from "react";
-import { cn } from "@tutti-ui/shared";
+import { cn } from "@tuttiui/shared";
 
 interface SidebarContextValue {
   collapsed: boolean;

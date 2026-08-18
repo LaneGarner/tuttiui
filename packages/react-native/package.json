@@ -1,16 +1,16 @@
 {
-  "name": "@tutti-ui/react-native",
+  "name": "@tuttiui/react-native",
   "version": "0.1.0",
-  "description": "React Native components for the tutti-ui design system",
+  "description": "React Native components for the tuttiui design system",
   "license": "MIT",
   "author": "Lane Garner",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lanegarner/tutti-ui.git",
+    "url": "https://github.com/lanegarner/tuttiui.git",
     "directory": "packages/react-native"
   },
-  "homepage": "https://github.com/lanegarner/tutti-ui#readme",
-  "bugs": "https://github.com/lanegarner/tutti-ui/issues",
+  "homepage": "https://github.com/lanegarner/tuttiui#readme",
+  "bugs": "https://github.com/lanegarner/tuttiui/issues",
   "keywords": [
     "react-native",
     "expo",
@@ -39,8 +39,8 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@tutti-ui/shared": "workspace:*",
-    "@tutti-ui/tokens": "workspace:*",
+    "@tuttiui/shared": "workspace:*",
+    "@tuttiui/tokens": "workspace:*",
     "class-variance-authority": "^0.7.0"
   },
   "peerDependencies": {

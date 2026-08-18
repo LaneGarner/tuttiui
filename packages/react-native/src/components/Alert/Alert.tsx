@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import { View, Text, Pressable, type ViewProps, type TextProps } from "react-native";
 import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@tutti-ui/shared";
+import { cn } from "@tuttiui/shared";
 
 const alertVariants = cva("relative w-full rounded-lg border p-4", {
   variants: {

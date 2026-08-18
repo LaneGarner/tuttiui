@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, type FC } from "react";
-import { cn } from "@tutti-ui/shared";
+import { cn } from "@tuttiui/shared";
 
 const SPEED_MAP = {
   slow: 80,

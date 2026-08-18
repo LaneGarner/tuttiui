@@ -1,4 +1,4 @@
-const { tuttiPreset } = require("@tutti-ui/react/tailwind");
+const { tuttiPreset } = require("@tuttiui/react/tailwind");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {

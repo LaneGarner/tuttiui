@@ -1,6 +1,6 @@
 ---
-"@tutti-ui/tokens": patch
-"@tutti-ui/react": patch
+"@tuttiui/tokens": patch
+"@tuttiui/react": patch
 ---
 
 Hold action-fill text to WCAG AA (4.5:1) in both themes and lock it in with

@@ -23,16 +23,16 @@ importers:
 
   apps/storybook:
     dependencies:
-      '@tutti-ui/react':
+      '@tuttiui/react':
         specifier: workspace:*
         version: link:../../packages/react
-      '@tutti-ui/react-native':
+      '@tuttiui/react-native':
         specifier: workspace:*
         version: link:../../packages/react-native
-      '@tutti-ui/shared':
+      '@tuttiui/shared':
         specifier: workspace:*
         version: link:../../packages/shared
-      '@tutti-ui/tokens':
+      '@tuttiui/tokens':
         specifier: workspace:*
         version: link:../../packages/tokens
       react:
@@ -81,10 +81,10 @@ importers:
 
   packages/react:
     dependencies:
-      '@tutti-ui/shared':
+      '@tuttiui/shared':
         specifier: workspace:*
         version: link:../shared
-      '@tutti-ui/tokens':
+      '@tuttiui/tokens':
         specifier: workspace:*
         version: link:../tokens
       class-variance-authority:
@@ -136,10 +136,10 @@ importers:
 
   packages/react-native:
     dependencies:
-      '@tutti-ui/shared':
+      '@tuttiui/shared':
         specifier: workspace:*
         version: link:../shared
-      '@tutti-ui/tokens':
+      '@tuttiui/tokens':
         specifier: workspace:*
         version: link:../tokens
       class-variance-authority:
@@ -194,7 +194,7 @@ importers:
 
   packages/shared:
     dependencies:
-      '@tutti-ui/tokens':
+      '@tuttiui/tokens':
         specifier: workspace:*
         version: link:../tokens
       clsx:
@@ -241,12 +241,12 @@ importers:
         specifier: ~5.9.2
         version: 5.9.3
 
-  packages/tutti-ui:
+  packages/tuttiui:
     dependencies:
-      '@tutti-ui/react':
+      '@tuttiui/react':
         specifier: workspace:*
         version: link:../react
-      '@tutti-ui/tokens':
+      '@tuttiui/tokens':
         specifier: workspace:*
         version: link:../tokens
       tailwindcss:

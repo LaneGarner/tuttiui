@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { lightColors } from "@tutti-ui/tokens";
+import { lightColors } from "@tuttiui/tokens";
 import type { ThemeContextValue } from "../types";
 
 export const ThemeContext = createContext<ThemeContextValue>({

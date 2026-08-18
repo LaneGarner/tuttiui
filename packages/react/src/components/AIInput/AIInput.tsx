@@ -8,7 +8,7 @@ import {
   type KeyboardEvent,
   type ChangeEvent,
 } from "react";
-import { cn } from "@tutti-ui/shared";
+import { cn } from "@tuttiui/shared";
 
 export interface AIInputProps
   extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "rows" | "onSubmit"> {

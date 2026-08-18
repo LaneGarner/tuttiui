@@ -1,7 +1,7 @@
 import { forwardRef, type ReactNode } from "react";
 import { View, Text, Pressable, type ViewProps } from "react-native";
 import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@tutti-ui/shared";
+import { cn } from "@tuttiui/shared";
 
 const toastVariants = cva(
   "flex w-full flex-row items-start gap-3 rounded-lg border p-4 shadow-lg",

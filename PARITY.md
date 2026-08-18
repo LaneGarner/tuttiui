@@ -1,6 +1,6 @@
 # Web / React Native Parity
 
-Status of each `@tutti-ui/react` component family in `@tutti-ui/react-native`.
+Status of each `@tuttiui/react` component family in `@tuttiui/react-native`.
 
 **Summary: 29 of 38 component families ported.** Native ports for the other
 0.3.0 additions (Stepper, Collapsible, Badge, SegmentedControl) are planned;
@@ -74,17 +74,17 @@ worse UX than the established native patterns, so they are mapped instead:
 | CommandPalette | 🌐 Web-only by design. Cmd+K is a keyboard idiom; the mobile equivalent is a dedicated search screen (typically owned by the app's navigation layer, e.g. react-navigation), not a design-system overlay |
 | Breadcrumbs | 🌐 Web-only by design. Mobile navigation communicates hierarchy through the navigation stack (header + back button), not breadcrumb trails |
 | NavMenu | ✅ Superseded by `TabBar`. The mobile pattern is a bottom tab bar; the `TabBar` family (shipped in both packages) covers it and plugs into react-navigation's `tabBar` prop |
-| Sidebar | 🌐 Web-only by design. The mobile equivalent is a navigation drawer, which react-navigation's drawer navigator already owns (gesture handling, focus, state). A tutti-ui theme for it may ship later, but a parallel drawer implementation would fight the ecosystem |
+| Sidebar | 🌐 Web-only by design. The mobile equivalent is a navigation drawer, which react-navigation's drawer navigator already owns (gesture handling, focus, state). A tuttiui theme for it may ship later, but a parallel drawer implementation would fight the ecosystem |
 | StreamingTable | 🔜 Deferred. Wide data tables don't fit phone viewports; the planned equivalent is a `StreamingList` (FlatList with skeleton rows and pending/streaming/complete row states) sharing the web version's data model |
 
 ## Shared foundations
 
-- **Tokens** — both packages consume `@tutti-ui/tokens` (colors, spacing,
+- **Tokens** — both packages consume `@tuttiui/tokens` (colors, spacing,
   typography, radii; `nativeShadows` provides RN-style shadow objects since
   CSS box-shadow strings don't translate).
-- **`cn()`** — the same clsx + tailwind-merge utility from `@tutti-ui/shared`
+- **`cn()`** — the same clsx + tailwind-merge utility from `@tuttiui/shared`
   works with NativeWind classNames.
-- **ThemeProvider** — `@tutti-ui/shared/native` exports an RN `ThemeProvider`
+- **ThemeProvider** — `@tuttiui/shared/native` exports an RN `ThemeProvider`
   with the same API as the web one (`initialPreference`, `onPreferenceChange`,
   `useTheme`), using `useColorScheme()` instead of `matchMedia`.
 - **Variants** — components use the same CVA variant definitions and prop APIs

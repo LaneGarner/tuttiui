@@ -25,7 +25,7 @@ import {
   Skeleton,
   Switch,
   Textarea,
-} from "@tutti-ui/react";
+} from "@tuttiui/react";
 
 /**
  * Every color-bearing surface on one page. The point is the theme toggle in

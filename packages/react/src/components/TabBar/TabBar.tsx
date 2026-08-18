@@ -7,7 +7,7 @@ import {
   type Ref,
 } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@tutti-ui/shared";
+import { cn } from "@tuttiui/shared";
 
 export interface TabBarProps extends HTMLAttributes<HTMLElement> {
   safeArea?: boolean;

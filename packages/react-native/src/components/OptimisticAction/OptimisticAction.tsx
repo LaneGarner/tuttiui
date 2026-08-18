@@ -1,7 +1,7 @@
 import { forwardRef, useState, useCallback, useRef } from "react";
 import { Pressable, Text, View, type PressableProps } from "react-native";
 import { cva, type VariantProps } from "class-variance-authority";
-import { cn, useTheme } from "@tutti-ui/shared";
+import { cn, useTheme } from "@tuttiui/shared";
 import { AnimatedSpinner } from "../../primitives";
 
 type ActionState = "idle" | "pending" | "confirmed" | "failed";

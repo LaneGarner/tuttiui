@@ -1,7 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "installCommand": "cd ../.. && pnpm install --frozen-lockfile",
-  "buildCommand": "cd ../.. && pnpm turbo run build --filter=@tutti-ui/storybook",
+  "buildCommand": "cd ../.. && pnpm turbo run build --filter=@tuttiui/storybook",
   "outputDirectory": "storybook-static",
   "framework": null,
   "cleanUrls": true,

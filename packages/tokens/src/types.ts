@@ -3,7 +3,7 @@
  *
  * Every key here becomes a CSS custom property (`--tt-<kebab-case-key>`) and a
  * Tailwind color name (`tt-<kebab-case-key>`) via the preset in
- * `@tutti-ui/react/tailwind`. Components reference the semantic name only —
+ * `@tuttiui/react/tailwind`. Components reference the semantic name only —
  * `bg-tt-surface`, never `bg-white` — so a consumer can retheme the whole
  * system by redeclaring the variables, and dark mode needs no `dark:` variants
  * anywhere in component source.

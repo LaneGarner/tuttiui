@@ -1,7 +1,7 @@
 import { forwardRef, useState } from "react";
 import { Pressable, View, Animated, type ViewProps } from "react-native";
 import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@tutti-ui/shared";
+import { cn } from "@tuttiui/shared";
 
 const switchTrackVariants = cva("rounded-full justify-center", {
   variants: {

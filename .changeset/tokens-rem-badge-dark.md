@@ -1,6 +1,6 @@
 ---
-"@tutti-ui/tokens": patch
-"@tutti-ui/react": patch
+"@tuttiui/tokens": patch
+"@tuttiui/react": patch
 ---
 
 Guard the px→rem boundary and lock status tint contrast to AA.
@@ -15,5 +15,5 @@ Guard the px→rem boundary and lock status tint contrast to AA.
   asserts 4.5:1 in both `lightColors` and `darkColors`, so a future Badge tint
   cannot regress below AA. All current pairs already pass (weakest: light
   warning at 6.84:1).
-- `@tutti-ui/tokens` README documents the rule: px values are authoring units
+- `@tuttiui/tokens` README documents the rule: px values are authoring units
   only; consumption is rem via the react tailwind preset.

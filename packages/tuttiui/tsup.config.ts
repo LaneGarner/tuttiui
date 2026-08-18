@@ -7,9 +7,9 @@ export default defineConfig({
   clean: true,
   sourcemap: true,
   external: [
-    "@tutti-ui/react",
-    "@tutti-ui/react/tailwind",
-    "@tutti-ui/tokens",
+    "@tuttiui/react",
+    "@tuttiui/react/tailwind",
+    "@tuttiui/tokens",
     "react",
     "react-dom",
     "tailwindcss",

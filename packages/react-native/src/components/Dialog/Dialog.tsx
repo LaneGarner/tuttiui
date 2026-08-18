@@ -13,7 +13,7 @@ import {
   type ViewProps,
   type TextProps,
 } from "react-native";
-import { cn } from "@tutti-ui/shared";
+import { cn } from "@tuttiui/shared";
 
 interface DialogContextValue {
   open: boolean;

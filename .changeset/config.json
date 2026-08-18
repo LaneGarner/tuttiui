@@ -1,11 +1,11 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@3.1.3/schema.json",
-  "changelog": ["@changesets/changelog-github", { "repo": "lanegarner/tutti-ui" }],
+  "changelog": ["@changesets/changelog-github", { "repo": "lanegarner/tuttiui" }],
   "commit": false,
   "fixed": [],
-  "linked": [["tutti-ui", "@tutti-ui/tokens", "@tutti-ui/shared", "@tutti-ui/react"]],
+  "linked": [["tuttiui", "@tuttiui/tokens", "@tuttiui/shared", "@tuttiui/react"]],
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": ["@tutti-ui/storybook"]
+  "ignore": ["@tuttiui/storybook"]
 }

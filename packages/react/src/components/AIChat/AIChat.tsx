@@ -1,5 +1,5 @@
 import { forwardRef, useEffect, useRef, type HTMLAttributes } from "react";
-import { cn } from "@tutti-ui/shared";
+import { cn } from "@tuttiui/shared";
 
 export interface ChatMessage {
   id: string;

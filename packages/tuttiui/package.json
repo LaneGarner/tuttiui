@@ -1,16 +1,16 @@
 {
-  "name": "tutti-ui",
+  "name": "tuttiui",
   "version": "0.2.0",
-  "description": "React components and design tokens from the tutti-ui design system",
+  "description": "React components and design tokens from the tuttiui design system",
   "license": "MIT",
   "author": "Lane Garner",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lanegarner/tutti-ui.git",
-    "directory": "packages/tutti-ui"
+    "url": "https://github.com/lanegarner/tuttiui.git",
+    "directory": "packages/tuttiui"
   },
-  "homepage": "https://github.com/lanegarner/tutti-ui#readme",
-  "bugs": "https://github.com/lanegarner/tutti-ui/issues",
+  "homepage": "https://github.com/lanegarner/tuttiui#readme",
+  "bugs": "https://github.com/lanegarner/tuttiui/issues",
   "keywords": [
     "react",
     "components",
@@ -54,8 +54,8 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@tutti-ui/react": "workspace:*",
-    "@tutti-ui/tokens": "workspace:*"
+    "@tuttiui/react": "workspace:*",
+    "@tuttiui/tokens": "workspace:*"
   },
   "peerDependencies": {
     "react": "^18.0.0 || ^19.0.0",

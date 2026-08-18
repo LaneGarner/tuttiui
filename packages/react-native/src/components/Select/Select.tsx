@@ -8,7 +8,7 @@ import {
   type ViewProps,
 } from "react-native";
 import { cva, type VariantProps } from "class-variance-authority";
-import { cn, useTheme } from "@tutti-ui/shared";
+import { cn, useTheme } from "@tuttiui/shared";
 import { CheckIcon } from "../../primitives";
 
 const selectTriggerVariants = cva(

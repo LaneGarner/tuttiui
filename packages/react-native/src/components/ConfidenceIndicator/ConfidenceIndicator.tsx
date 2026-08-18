@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import { View, Text, type ViewProps } from "react-native";
-import { cn } from "@tutti-ui/shared";
+import { cn } from "@tuttiui/shared";
 
 export interface ConfidenceIndicatorProps extends ViewProps {
   value: number;

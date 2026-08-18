@@ -1,7 +1,7 @@
 import { forwardRef, useState } from "react";
 import { View, TextInput, type TextInputProps } from "react-native";
 import { cva, type VariantProps } from "class-variance-authority";
-import { cn, useTheme } from "@tutti-ui/shared";
+import { cn, useTheme } from "@tuttiui/shared";
 
 const inputContainerVariants = cva(
   "rounded-md border border-tt-border-strong bg-tt-field",
