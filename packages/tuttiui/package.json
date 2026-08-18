@@ -75,5 +75,6 @@
   ],
   "sideEffects": [
     "./dist/theme.css"
-  ]
+  ],
+  "private": true
 }

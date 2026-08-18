@@ -62,3 +62,5 @@ React Native projects should continue to install `@tuttiui/react-native` directl
 - [Storybook](https://lanegarner.github.io/tuttiui/)
 - [GitHub](https://github.com/LaneGarner/tuttiui)
 - [Scoped React package](https://www.npmjs.com/package/@tuttiui/react)
+
+> **Parked (2026-08-18):** this package is marked `private` so releases skip it — npm currently rejects the name as too similar to `tutti-ui` (also owned by Lane). When ready to claim it: unpublish/resolve `tutti-ui`, set `"private": false`, restore `tuttiui` to the linked group in `.changeset/config.json`, and publish.
