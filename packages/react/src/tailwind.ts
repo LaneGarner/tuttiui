@@ -10,7 +10,7 @@ import {
   cssVarName,
   DARK_SELECTOR,
 } from "@tuttiui/tokens";
-import plugin from "tailwindcss/plugin";
+import plugin from "tailwindcss/plugin.js";
 
 function pxToRem(px: number): string {
   return `${px / 16}rem`;
