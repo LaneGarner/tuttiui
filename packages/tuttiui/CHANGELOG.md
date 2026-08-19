@@ -1,5 +1,14 @@
 # tuttiui
 
+## 0.3.1
+
+### Patch Changes
+
+- [#17](https://github.com/LaneGarner/tuttiui/pull/17) [`6f7a69e`](https://github.com/LaneGarner/tuttiui/commit/6f7a69e388523e20849da802bc91130af937d4cc) Thanks [@LaneGarner](https://github.com/LaneGarner)! - Fix the Tailwind preset entry point so it can be loaded with native Node.js ESM as well as CommonJS.
+
+- Updated dependencies [[`6f7a69e`](https://github.com/LaneGarner/tuttiui/commit/6f7a69e388523e20849da802bc91130af937d4cc)]:
+  - @tuttiui/react@0.3.1
+
 ## 0.3.0
 
 ### Minor Changes
